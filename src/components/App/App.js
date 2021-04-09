@@ -1,7 +1,15 @@
-function App() {
+//Imports
+import React from 'react';
+
+//Component Imports
+import Login from '../Login/Login'
+
+//UI Imports
+
+const App = () => {
   return (
     <div className="App">
-      <h1>Test</h1>
+      <Login />
     </div>
   );
 }

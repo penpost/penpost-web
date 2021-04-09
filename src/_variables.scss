@@ -4,19 +4,19 @@ $ink-blue: #000029;
 $pink: #BD759D;
 $white: #F9F4F0;
 
-@mixin header-font() {
-  font-family: 'Lexend', sans-serif;
-}
-
-@mixin title-font() {
+@mixin title-font {
   font-family: 'Tangerine', serif;
 }
 
-@mixin paragraph-font() {
+@mixin header-font {
+  font-family: 'Lexend', sans-serif;
+}
+
+@mixin paragraph-font {
   font-family: 'Lato', sans-serif;
 }
 
-@mixin centerHorizontally() {
+@mixin centerHorizontally {
   margin-left: 50%;
-  transform: translateX(-50%)
+  transform: translateX(-50%);
 }

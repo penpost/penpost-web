@@ -1,0 +1,9 @@
+@import '../../_variables.scss';
+
+section {
+  border: 2px solid $ink-blue;
+}
+
+h1 {
+  @include header-font;
+}
