@@ -3,10 +3,11 @@
 section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  width: 90vw;
   border: 2px solid $ink-blue;
-  box-shadow: 3px 3px 3px $pink;
+  border-radius: 1.5rem;
+  box-shadow: 10px 10px 10px $pink;
 }
 
 h1 {
@@ -14,9 +15,19 @@ h1 {
   font-size: 2rem;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 label {
   @include header-font;
   font-size: 1.2rem;
+}
+
+input {
+  margin: .8rem;
 }
 
 button {
@@ -24,11 +35,14 @@ button {
   font-size: 1.3rem;
   background-color: $ink-blue;
   border: 0;
-  border-radius: .2rem;
+  border-radius: .5rem;
   box-shadow: none;
-  padding: .7rem;
-  margin: 3rem;
+  padding: .8rem;
+  margin: 2rem;
   width: 10rem;
 }
 
-//add active state
+button:active {
+  background-color: rgba(0, 0, 41, .8);
+  border: none;
+}

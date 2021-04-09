@@ -5,15 +5,16 @@ import React, { useState } from 'react';
 import './Login.scss';
 
 const Login = () => {
-  //include message handling/conditional rendering if login isn't valid
-  //is that a BE ot FE task?
-  //Is that MVP?
+  const [validLogin, setValidLogin] = useState(true)
+  //default is true! So no error message appears
 
-  
+  //if value is blank, then setValidLogin(false)
+  //display error message
+  //include minvalue for security
 
   return (
     <section>
-      <h1>Welcome</h1>
+      <h1>Login</h1>
       <form>
         <div>
           <label for="username">username:</label>
@@ -25,6 +26,11 @@ const Login = () => {
         </div>
         <button type="submit" name="button" aria-label="login">login</button>
       </form>
+      {!validLogin &&
+        <article>
+          <p>Oops, please check either your username or password! Something seems wrong.</p>
+        </article>
+      }
    </section>
   )
 }
