@@ -1,0 +1,26 @@
+
+@import '../../variables';
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $ink-blue;
+    @include paragraph-font();
+    background-color: $white;
+    margin-top: 10rem;
+}
+
+// .homepageTitle {
+//     @include title-font();
+// }
+
+.button {
+    background-color: $pink;
+    @include paragraph-font();
+    padding: .5rem;
+    color: $white;
+    border: none;
+    border-radius: 8px;
+    width: 50%;
+}

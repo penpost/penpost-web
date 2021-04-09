@@ -3,13 +3,13 @@ import './Home.scss'
 
 const Home = () => {
     return (
-        <section>
-            <h1>Welcome to PostPal</h1>
+        <section className='homepage'>
+            <h1 className='homepageTitle'>Welcome to PostPal</h1>
             <h2>About Us</h2>
             <p>How it works</p>
-            <button>Login</button>
+            <button className='loginButton button'>Login</button>
             <p>If you don't have a login, sign up below</p>
-            <button>Register</button>
+            <button className='registerButton button'>Register</button>
         </section>
     )
 }

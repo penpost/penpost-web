@@ -1,11 +1,12 @@
 import React from 'react' 
 import Home from '../Home/Home'
+import './_App.scss'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <main>
       <Home/>
-    </div>
+    </main>
   )
 }
 
