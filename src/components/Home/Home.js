@@ -3,7 +3,14 @@ import './Home.scss'
 
 const Home = () => {
     return (
-        <h1>Home</h1>
+        <section>
+            <h1>Welcome to PostPal</h1>
+            <h2>About Us</h2>
+            <p>How it works</p>
+            <button>Login</button>
+            <p>If you don't have a login, sign up below</p>
+            <button>Register</button>
+        </section>
     )
 }
 
