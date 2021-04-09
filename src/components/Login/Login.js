@@ -6,6 +6,10 @@ import './Login.scss';
 
 const Login = () => {
   //include message handling/conditional rendering if login isn't valid
+  //is that a BE ot FE task?
+  //Is that MVP?
+
+  
 
   return (
     <section>
