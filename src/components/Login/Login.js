@@ -6,25 +6,35 @@ import './Login.scss';
 
 const Login = () => {
   const [validLogin, setValidLogin] = useState(true)
-  //default is true! So no error message appears
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
+  //default is true! So no error message appears
   //if value is blank, then setValidLogin(false)
   //display error message
   //include minvalue for security
+
+  const checkLogin = () => {
+    if ( username.length > 6 && password.length > 6) {
+      setValidLogin(false);
+      console.log(validLogin)
+      window.stop();
+    }
+  }
 
   return (
     <section>
       <h1>Login</h1>
       <form>
         <div>
-          <label for="username">username:</label>
-          <input type="text" id="username" name="username" value="" />
+          <label htmlFor='username'>username:</label>
+          <input type='text' id='username' name='username' value={username} minLength='6' maxLength='15' required onChange={e => setUsername(e.target.value)}/>
         </div>
         <div>
-          <label for="password">password:</label>
-          <input type="password" id="password" name="password" value="" />
+          <label htmlFor='password'>password:</label>
+          <input type='password' id='password' name='password' value={password} minLength='6' maxLength='20' required onChange={e => setPassword(e.target.value)}/>
         </div>
-        <button type="submit" name="button" aria-label="login">login</button>
+        <button type='submit' name='button' aria-label='login' onClick={checkLogin}>login</button>
       </form>
       {!validLogin &&
         <article>

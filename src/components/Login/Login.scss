@@ -30,6 +30,11 @@ input {
   margin: .8rem;
 }
 
+article {
+  @include paragraph-font;
+  width: 80%;
+}
+
 button {
   color: $white;
   font-size: 1.3rem;
