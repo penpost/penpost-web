@@ -1,13 +1,11 @@
-import React from 'react' 
-import Home from '../Home/Home'
-import './_App.scss'
+import UserLandingPage from '../User-Landing-Page/User-Landing'
 
-const App = () => {
+function App() {
   return (
-    <main>
-      <Home/>
-    </main>
-  )
+    <div className="App">
+      <UserLandingPage />
+    </div>
+  );
 }
 
 export default App;

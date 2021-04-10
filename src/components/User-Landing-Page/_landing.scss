@@ -27,4 +27,10 @@
     @include centerHorizontally();
     background-color: rgba(0,0,0,.1)
   }
+
+  .address {
+    h4 {
+      margin: 0;
+    }
+  }
 }
