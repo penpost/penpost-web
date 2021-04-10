@@ -16,13 +16,13 @@ const Home = () => {
           five centuries, but also the leap into electronic typesetting,
           remaining essentially unchanged.
         </p>
-        <Link to='login'>
+        <Link to='/login'>
           <button className="loginButton button">Login</button>
         </Link>
         <p className="homepageParagraph">
           If you don't have a login, sign up below
         </p>
-        <Link to ='register'>
+        <Link to ='/register'>
             <button className="registerButton button">Register</button>
         </Link>
       </section>

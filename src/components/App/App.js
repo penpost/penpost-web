@@ -1,11 +1,21 @@
 import React from 'react' 
 import Home from '../Home/Home'
+import Login from '../Login/Login'
 import './_App.scss'
+import { Route } from 'react-router-dom'
 
 const App = () => {
   return (
     <main>
-      <Home/>
+      <Route 
+      exact
+      path="/" component={Home}
+      />
+      <Route
+      exact
+      path="/login"
+      render={() => <Login/>} 
+      />
     </main>
   )
 }
