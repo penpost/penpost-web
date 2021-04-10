@@ -22,7 +22,7 @@ const Home = () => {
         <p className="homepageParagraph">
           If you don't have a login, sign up below
         </p>
-        <Link to ='/register'>
+        <Link to ='/register' className='registerPage'>
             <button className="registerButton button">Register</button>
         </Link>
       </section>

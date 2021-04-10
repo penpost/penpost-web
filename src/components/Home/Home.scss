@@ -19,6 +19,10 @@
     margin-top: 2rem;
 }
 
-// a {
-//     @include button()
-// }
+a, button {
+    @include button()
+}
+
+.registerPage {
+    margin-bottom: 1rem;
+}
