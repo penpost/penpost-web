@@ -27,8 +27,8 @@ const Login = () => {
   }
 
   return (
-    <section>
-      <h1>Login</h1>
+    <section className='loginSection'>
+      <h1 className='loginTitle'>Login</h1>
       <form>
         <div>
           <label htmlFor='username'>username:</label>
@@ -43,7 +43,7 @@ const Login = () => {
         </Link>
       </form>
       {!validLogin &&
-        <article>
+        <article className='invalidLoginText'>
           <p>Oops, please check either your username or password! Something seems wrong.</p>
         </article>
       }

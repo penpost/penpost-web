@@ -16,13 +16,20 @@
 }
 
 .homepageParagraph {
-    margin-top: 2rem;
+    padding: 1rem;
 }
 
 a, button {
     @include button()
 }
 
-.registerPage {
-    margin-bottom: 1rem;
+.buttonContainer {
+    padding: 1rem;
+    @include display-flex();
+    @include basic-border();
 }
+
+.paragraphText {
+    font-size: 1 rem;
+}
+
