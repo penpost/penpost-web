@@ -2,13 +2,13 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.2.1
-  # cypress: cypress-io/cypress@1.27.0
+  cypress: cypress-io/cypress@1.27.0
 # Orb for vercel?
 
-# workflows:
-#   build:
-#     jobs:
-#       - cypress/run:
+workflows:
+  build:
+    jobs:
+      - cypress/run
 #           executor: cypress/browsers-chrome69
 #           browser: chrome
 #           start: npm start
