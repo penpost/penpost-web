@@ -1,14 +1,13 @@
 import React from 'react'
 import './Home.scss'
 import { Link } from 'react-router-dom'
-import postcard from '../assets/postcard-images.jpg'
 
 const Home = () => {
     return (
       <section className="homepage">
         <h1 className="homepageTitle">Welcome to</h1>
-        <h1 className='penPost'>Penpost</h1>
-        <p className='paragraphText'>Make a connection and send from your phone</p>
+        <div className='penPostImage'><h1 className='penPostText'>PenPost</h1></div>
+        <p className='paragraphText'>Take a picture and send it as postcard from your phone to your PenPost.</p>
         <div className='buttonContainer'>
             <Link to="/login">
             <button className="loginButton button" aria-label="login">
