@@ -1,0 +1,30 @@
+.landing-wrapper {
+  width: 100vw;
+  height: 93vh;
+  margin-top: 7vh;
+  background-color: $white;
+
+
+  .header-placeholder {
+    position: fixed;
+    margin-top: -7vh;
+    width: 100vw;
+    height: 7vh;
+    background-color: $pink
+  }
+
+  h1 {
+    @include centerHorizontally()
+    @include header-font()
+    text-align: center;
+    width: 50vw;
+  }
+
+  .info-wrapper {
+    width: 90vw;
+    height: 25vh;
+    border: 1px solid $pink;
+    @include centerHorizontally();
+    background-color: rgba(0,0,0,.1)
+  }
+}

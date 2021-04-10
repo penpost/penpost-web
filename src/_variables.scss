@@ -32,3 +32,14 @@ $white: #F9F4F0;
   margin-left: 50%;
   transform: translateX(-50%);
 }
+
+@mixin button() {
+  background-color: $ink-blue;
+  @include paragraph-font();
+  padding: .75rem;
+  color: $white;
+  border: none;
+  border-radius: 8px;
+  width: 50%;
+  font-weight: bold;
+}
