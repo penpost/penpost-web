@@ -15,6 +15,16 @@
     font-size: 2rem;
 }
 
+.penPost {
+  @include title-font;
+  font-size: 4rem;
+  margin: 0;
+  padding: 6rem;
+  text-shadow: 1px 1px $white, -1px 1px $white, 1px -1px $white, -1px -1px $white;
+  background-image: url('../assets/postcard-images.jpg');
+  background-size: cover;
+}
+
 .homepageParagraph {
     padding: 1rem;
 }
@@ -32,4 +42,3 @@ a, button {
 .paragraphText {
     font-size: 1 rem;
 }
-
