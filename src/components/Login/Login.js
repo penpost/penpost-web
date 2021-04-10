@@ -1,5 +1,6 @@
 //Imports
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 //UI Imports
 import './Login.scss';
@@ -37,7 +38,9 @@ const Login = () => {
           <label htmlFor='password'>password:</label>
           <input type='password' id='password' name='password' value={password} minLength='6' maxLength='20' required onChange={e => setPassword(e.target.value)}/>
         </div>
-        <button type='submit' name='button' aria-label='login' onClick={checkLogin}>login</button>
+        <Link to='user-landing-page'>
+          <button type='submit' name='button' aria-label='login' onClick={checkLogin}>login</button>
+        </Link>
       </form>
       {!validLogin &&
         <article>
