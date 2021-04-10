@@ -38,8 +38,8 @@ const Login = () => {
           <label htmlFor='password'>password:</label>
           <input type='password' id='password' name='password' value={password} minLength='6' maxLength='20' required onChange={e => setPassword(e.target.value)}/>
         </div>
-        <Link to='user-landing-page'>
-          <button type='submit' name='button' aria-label='login' onClick={checkLogin}>login</button>
+        <Link to='/user-landing' className='landingPage'>
+          <button type='submit' name='button' aria-label='login' onClick={checkLogin}>Login</button>
         </Link>
       </form>
       {!validLogin &&
