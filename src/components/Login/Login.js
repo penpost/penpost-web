@@ -14,11 +14,14 @@ const Login = () => {
   //display error message
   //include minvalue for security
 
-  const checkLogin = () => {
-    if ( username.length > 6 && password.length > 6) {
+  const checkLogin = (event) => {
+    if ( username.length > 6 && password.length > 6 ) {
+      event.preventDefault();
       setValidLogin(false);
       console.log(validLogin)
-      window.stop();
+
+      //having some problem with automatic reloading?
+      //I want the
     }
   }
 

@@ -16,6 +16,18 @@ $white: #F9F4F0;
   font-family: 'Lato', sans-serif;
 }
 
+@mixin basic-border {
+  border: 2px solid $ink-blue;
+  border-radius: 1.5rem;
+  box-shadow: 10px 10px 10px $pink;
+}
+
+@mixin display-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @mixin centerHorizontally {
   margin-left: 50%;
   transform: translateX(-50%);

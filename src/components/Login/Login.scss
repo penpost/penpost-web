@@ -1,13 +1,9 @@
 @import '../../_variables.scss';
 
 section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 90vw;
-  border: 2px solid $ink-blue;
-  border-radius: 1.5rem;
-  box-shadow: 10px 10px 10px $pink;
+  @include basic-border;
+  @include display-flex;
 }
 
 h1 {
@@ -16,9 +12,7 @@ h1 {
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include display-flex;
 }
 
 label {
