@@ -3,14 +3,18 @@ import UpdateUserInfoForm from '../User-Form/Update-Form'
 
 function UserLandingPage() {
   const [user, setUser] = useState({})
+  const [address, setAddress] = useState({})
+  const [userAbout, setUserAbout] = useState('')
   const [connection, setConnection] = useState({id: 2, name:'Bill', about:'Howdy Im Bill'})
   const [updating, setUpdating] = useState(false)
 
   useEffect(() => {
-    setUser({id: 1, name: 'John', street: '123 Wherever Street', city: 'Denver', state: 'CO', zip: 80202, country: 'United States', connections: false, about: 'My about me'})
+    setUser({ id: 1, name: 'John', connections: false })
+    setAddress({ street: '123 Wherever Street', city: 'Denver', state: 'CO', zip: 80202, country: 'United States' })
+    setUserAbout('My about me')
   }, [])
 
-  // PASS USER DATA THRU AS PROPS AFTER LOGIN, OR CALL THEM ON PAGE LOAD?
+
 
   return (
     <div className='landing-wrapper'>
@@ -20,11 +24,11 @@ function UserLandingPage() {
           <h2>Profile Info</h2>
           <div className='info-wrapper'>
             <div className='address'>
-              <h4>{user.street} </h4>
-              <h4>{user.city} {user.state}, {user.zip}</h4>
-              <h4>{user.country}</h4>
+              <h4>{address.street} </h4>
+              <h4>{address.city} {address.state}, {address.zip}</h4>
+              <h4>{address.country}</h4>
             </div>
-            <h4>{user.about}</h4>
+            <h4>{userAbout}</h4>
             <button onClick={() => setUpdating(true)}>Edit</button>
           </div>
           <h2>Connection</h2>
@@ -46,7 +50,7 @@ function UserLandingPage() {
           </div>
         </>
       }
-      {updating && <UpdateUserInfoForm props={user}/>}
+      {updating && <UpdateUserInfoForm address={address} userAbout={userAbout}/>}
 
     </div>
   )

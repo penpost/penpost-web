@@ -1,0 +1,10 @@
+.form-wrapper {
+  form {
+    @include display-flex
+  }
+
+  input,
+  textarea {
+    align-self: flex-start;
+  }
+}
