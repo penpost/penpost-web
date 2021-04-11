@@ -7,6 +7,7 @@ $white: #F9F4F0;
 @mixin title-font {
   font-family: 'Tangerine', cursive;
   font-weight: 700;
+  color: $ink-blue;
 }
 
 @mixin header-font {
