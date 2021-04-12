@@ -56,11 +56,10 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
           <label htmlFor='submit' />
           <input type='submit' value='Update' id='submit' />
         </form>
-        <button onClick={back}>Back</button>
+        <label htmlFor='back' value='back' />
+        <button onClick={back} id='back'>Back</button>
     </div>
   )
 }
 
 export default UpdateUserInfoForm
-
-// <input type='text' value={userAddress.country} id='country'/>
