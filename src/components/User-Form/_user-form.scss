@@ -17,17 +17,22 @@
   }
 
   textarea {
-    width: 80vw;
+    width: 94vw;
     height: 25vh;
   }
 
   label {
     align-self: flex-start;
-    margin-top: .5em;
+    margin: .5em 0 .5em 0;
+  }
+
+  #state,
+  #country {
+    align-self: flex-start;
   }
 
   #submit {
-    margin-top: 3em;
+    margin-top: 2em;
     @include button
     @include centerHorizontally
   }

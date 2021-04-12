@@ -11,7 +11,7 @@ const UserLandingPage = () => {
   useEffect(() => {
     setUser({ id: 1, name: 'John', connections: false })
     setAddress({ street: '123 Wherever Street', city: 'Denver', state: 'CO', zip: 80202, country: 'United States' })
-    setUserAbout('Add an about me!')
+    setUserAbout('About Add an about me! asdfasf kdasjf;lkdajf ;lkjadf;lkaj sdf;lkdas jfd;lkjds;flkdjs al;kjfda;lsdkjf;lad skjfd;lkajd s;fdlkjaf; lkjasddf;lkja sd;lfkjda;lk dfja;lsksdjf a;slkjf;ads lkjfa;sldkjfad s;lkjd fasd; lkjdf a;slkd fa;lkdj fa;lkd jfa;lkdjf; lkdaj;al kjdfld')
   }, [])
 
   const updateHandler = (address, about) => {
@@ -34,26 +34,28 @@ const UserLandingPage = () => {
               <h4>{address.city} {address.state}, {address.zip}</h4>
               <h4>{address.country}</h4>
             </div>
-            <h4>{userAbout}</h4>
-            <button onClick={() => setUpdating(true)}>Edit</button>
+            <h4 className='about'>{userAbout}</h4>
+            <div className='button-wrapper'>
+              <button onClick={() => setUpdating(true)}>Edit</button>
+            </div>
           </div>
           <div className='info-wrapper'>
             <h2>Connection</h2>
             {!connection &&
-              <div>
+              <>
                 <h4>Looks like you arent connected with a pen pal, please click here to find one!</h4>
                 <button>Click</button>
-              </div>
+              </>
             }
             {connection &&
-              <div>
-                <h4>You are connected with {connection.name /*?*/}</h4>
-                <h4>{connection.about}</h4>
+              <>
+                <h4 className='connection-name'>You are connected with {connection.name /*?*/}</h4>
+                <h4 className='about'>{connection.about}</h4>
                 <div className='button-wrapper'>
                   <button>Send Postcard</button>
                   <button>End Connection</button>
                 </div>
-              </div>
+              </>
             }
           </div>
         </>
