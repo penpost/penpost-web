@@ -13,3 +13,33 @@ header h1 {
   @include title-font;
   margin: 0;
 }
+
+// NAVIGATION BAR
+
+ul {
+  list-style-type: none;
+}
+
+.menuOptions {
+  display: flex;
+  justify-content: space-between;
+  background-color: $white;
+}
+.hamburger {
+  height: 1.5rem;
+  position: fixed;
+}
+
+//style so height is the same as header
+
+
+ul li a {
+  @include paragraph-font;
+  color: $ink-blue;
+  background-color: red;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
+}
