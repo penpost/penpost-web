@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lexend&family=Tangerine&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Lexend:wght@100&family=Tangerine:wght@700&display=swap');
 
 $ink-blue: #000029;
 $pink: #BD759D;
 $white: #F9F4F0;
 
 @mixin title-font {
-  font-family: 'Tangerine', serif;
+  font-family: 'Tangerine', cursive;
+  font-weight: 700;
+  color: $ink-blue;
 }
 
 @mixin header-font {
@@ -14,6 +16,7 @@ $white: #F9F4F0;
 
 @mixin paragraph-font {
   font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 
 @mixin basic-border {
@@ -36,10 +39,12 @@ $white: #F9F4F0;
 @mixin button() {
   background-color: $ink-blue;
   @include paragraph-font();
-  padding: .75rem;
+  padding: .25rem;
   color: $white;
   border: none;
   border-radius: 8px;
-  width: 50%;
+  width: 10rem;
   font-weight: bold;
+  font-size: 1.25rem;
+  text-align: center;
 }

@@ -1,12 +1,12 @@
 @import '../../_variables.scss';
 
-section {
+.loginSection {
   width: 90vw;
   @include basic-border;
   @include display-flex;
 }
 
-h1 {
+.loginTitle {
   @include header-font;
   font-size: 2rem;
 }
@@ -24,24 +24,17 @@ input {
   margin: .8rem;
 }
 
-article {
+.invalidLoginText {
   @include paragraph-font;
   width: 80%;
 }
 
-button {
-  color: $white;
-  font-size: 1.3rem;
-  background-color: $ink-blue;
-  border: 0;
-  border-radius: .5rem;
-  box-shadow: none;
-  padding: .8rem;
-  margin: 2rem;
-  width: 10rem;
-}
 
 button:active {
   background-color: rgba(0, 0, 41, .8);
   border: none;
+}
+
+.landingPage {
+  margin-bottom: 1rem;
 }
