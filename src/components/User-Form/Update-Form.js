@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 
-function UpdateUserInfoForm({address, userAbout}) {
+const UpdateUserInfoForm = ({address, userAbout}) => {
 
-  // const [street, setStreet] = useState(address.street)
-  // const [city, setCity] = useState(address.city)
-  // const [state, setState] = useState(address.state)
-  // const [zip, setZip] = useState(address.zip)
-  // const [country, setCountry] = useState(address.country)
   const [about, setAbout] = useState(userAbout)
   const [userAddress, setAddress] = useState(address)
 

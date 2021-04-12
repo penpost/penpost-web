@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import UpdateUserInfoForm from '../User-Form/Update-Form'
 
-function UserLandingPage() {
+const UserLandingPage = () => {
   const [user, setUser] = useState({})
   const [address, setAddress] = useState({})
   const [userAbout, setUserAbout] = useState('')
