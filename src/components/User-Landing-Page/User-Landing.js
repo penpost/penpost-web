@@ -5,7 +5,7 @@ const UserLandingPage = () => {
   const [user, setUser] = useState({})
   const [address, setAddress] = useState({})
   const [userAbout, setUserAbout] = useState('')
-  const [connection, setConnection] = useState({id: 2, name:'Bill', about:'Howdy Im Bill'})
+  const [connection, setConnection] = useState({id: 2, name:'Bill', country:'United States', about:'Howdy Im Bill'})
   const [updating, setUpdating] = useState(false)
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const UserLandingPage = () => {
             }
             {connection &&
               <>
-                <h4 className='connection-name'>You are connected with {connection.name /*?*/}</h4>
+                <h4 className='connection-name'>You are connected with {connection.name} ({connection.country})</h4>
                 <h4 className='about'>{connection.about}</h4>
                 <div className='button-wrapper'>
                   <button>Send Postcard</button>
