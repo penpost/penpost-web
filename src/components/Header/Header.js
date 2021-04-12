@@ -7,8 +7,7 @@ const Header = () => {
   const [isOpen, setOpen] = useState(false)
   
   return (
-    <header>
-      <h1>PenPost</h1>
+    <header className='mobileHeader'>
       <Hamburger toggled={isOpen} toggle={setOpen} />
       {isOpen && (
         <div className="menuOptions">
@@ -22,6 +21,7 @@ const Header = () => {
           </ul>
         </div>
       )}
+      <h1>PenPost</h1>
     </header>
   );
 }

@@ -11,7 +11,12 @@ header {
 
 header h1 {
   @include title-font;
-  margin: 0;
+  margin-right: 1rem;
+}
+
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
 }
 
 // NAVIGATION BAR
@@ -22,8 +27,8 @@ ul {
 
 .menuOptions {
   position: absolute;
-  top: 3rem;
-  right: 7rem;
+  top: 2.5rem;
+  right: 14rem;
   background-color: $white;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -36,11 +41,7 @@ ul li a {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  font-size: 1.2rem;
 }
-
-// .hamburger {
-//   height: 1.5rem;
-//   position: fixed;
-// }
 
 //style so height is the same as header
