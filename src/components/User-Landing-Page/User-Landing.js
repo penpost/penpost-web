@@ -11,8 +11,14 @@ const UserLandingPage = () => {
   useEffect(() => {
     setUser({ id: 1, name: 'John', connections: false })
     setAddress({ street: '123 Wherever Street', city: 'Denver', state: 'CO', zip: 80202, country: 'United States' })
-    setUserAbout('My about me')
+    setUserAbout('Add an about me!')
   }, [])
+
+  const updateHandler = (address, about) => {
+    setUpdating(false)
+    console.log('Address', address)
+    console.log('About', about)
+  }
 
 
 
@@ -21,8 +27,8 @@ const UserLandingPage = () => {
       {!updating &&
         <>
           <h1>Welcome {user.name}</h1>
-          <h2>Profile Info</h2>
           <div className='info-wrapper'>
+            <h2>Profile Info</h2>
             <div className='address'>
               <h4>{address.street} </h4>
               <h4>{address.city} {address.state}, {address.zip}</h4>
@@ -31,8 +37,8 @@ const UserLandingPage = () => {
             <h4>{userAbout}</h4>
             <button onClick={() => setUpdating(true)}>Edit</button>
           </div>
-          <h2>Connection</h2>
           <div className='info-wrapper'>
+            <h2>Connection</h2>
             {!connection &&
               <div>
                 <h4>Looks like you arent connected with a pen pal, please click here to find one!</h4>
@@ -43,14 +49,16 @@ const UserLandingPage = () => {
               <div>
                 <h4>You are connected with {connection.name /*?*/}</h4>
                 <h4>{connection.about}</h4>
-                <button>Send Postcard</button>
-                <button>Terminate Connection</button>
+                <div className='button-wrapper'>
+                  <button>Send Postcard</button>
+                  <button>End Connection</button>
+                </div>
               </div>
             }
           </div>
         </>
       }
-      {updating && <UpdateUserInfoForm address={address} userAbout={userAbout}/>}
+      {updating && <UpdateUserInfoForm address={address} userAbout={userAbout} updateHandler={updateHandler} />}
 
     </div>
   )

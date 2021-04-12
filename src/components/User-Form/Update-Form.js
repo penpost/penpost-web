@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 
-const UpdateUserInfoForm = ({address, userAbout}) => {
+const UpdateUserInfoForm = ({address, userAbout, updateHandler}) => {
 
   const [about, setAbout] = useState(userAbout)
   const [userAddress, setAddress] = useState(address)
-
 
   const inputHandler = (e) => {
     switch(e.target.id) {
@@ -29,16 +28,30 @@ const UpdateUserInfoForm = ({address, userAbout}) => {
     }
   }
 
+  const submitHandler = () => {
+
+    updateHandler(userAddress, about)
+  }
+
   return (
     <div className='form-wrapper'>
-        <form onChange={inputHandler}>
-          <input type='text' value={userAddress.street} id='street' />
-          <input type='text' value={userAddress.city} id='city' />
-          <input type='text' value={userAddress.state} id='state' />
-          <input type='number' value={userAddress.zip} id='zip'/>
-          <input type='text' value={userAddress.country} id='country'/>
-          <textarea type='text' value={about} id='about'/>
-          <input type='submit' value='Update' />
+        <form onChange={inputHandler} onSubmit={submitHandler}>
+          <div>
+            <label htmlFor='street'>Street:</label>
+            <input type='text' value={userAddress.street} id='street' />
+            <label htmlFor='city'>City:</label>
+            <input type='text' value={userAddress.city} id='city' />
+            <label htmlFor='state'>State:</label>
+            <input type='text' value={userAddress.state} id='state' />
+            <label htmlFor='zip'>Zip:</label>
+            <input type='number' value={userAddress.zip} id='zip'/>
+            <label htmlFor='country'>Country:</label>
+            <input type='text' value={userAddress.country} id='country'/>
+          </div>
+          <label htmlFor='about'>About:</label>
+          <textarea type='text' value={about} id='about' />
+          <label htmlFor='submit' />
+          <input type='submit' value='Update' id='submit' />
         </form>
     </div>
   )
