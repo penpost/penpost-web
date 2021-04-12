@@ -13,9 +13,3 @@ header h1 {
   @include title-font;
   margin: 0;
 }
-
-nav ul li {
-  @include paragraph-font;
-  color: $ink-blue;
-  list-style-type: none;
-}
