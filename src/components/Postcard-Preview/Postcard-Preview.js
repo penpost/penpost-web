@@ -31,7 +31,13 @@ const Preview = () => {
         <div className='stamp' />
       </article>
       <div className='button-wrapper'>
-        <Link to='/create-postcard'>
+        <Link to={{
+          pathname: '/create-postcard',
+          state: {
+            image,
+            message
+          }
+        }}>
         <button>Edit</button>
         </Link>
         <button>Send!</button>

@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const PostcardForm = () => {
 
   const [image, setImage] = useState('')
   const [message, setMessage] = useState('')
+  const location = useLocation()
+
+  useEffect(() => {
+    console.log(location.state.image)
+    if(location.state !== undefined) {
+      setImage(location.state.image)
+      setMessage(location.state.message)
+    }
+  }, [])
 
   const inputHandler = (e) => {
     switch (e.target.id) {
