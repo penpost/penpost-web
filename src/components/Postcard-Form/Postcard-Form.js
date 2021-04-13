@@ -41,7 +41,6 @@ const PostcardForm = () => {
           <input required type='submit' value='Preview Postcard' id='preview'/>
         </Link>
       </form>
-      {image && <img src={image} />}
     </section>
   )
 }

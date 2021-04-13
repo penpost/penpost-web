@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './Home.scss';
+import './_Home.scss';
 
 const Home = () => {
     return (

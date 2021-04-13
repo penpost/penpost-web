@@ -9,17 +9,11 @@ const Login = () => {
 
   //default is true! So no error message appears
   //if value is blank, then setValidLogin(false)
-  //display error message
-  //include minvalue for security
 
   const checkLogin = (event) => {
-    if ( username.length > 6 && password.length > 6 ) {
+    if ( username.length < 6 && password.length < 6 ) {
       event.preventDefault();
       setValidLogin(false);
-      console.log(validLogin)
-
-      //having some problem with automatic reloading?
-      //I want the
     }
   }
 

@@ -5,11 +5,20 @@ const Preview = () => {
   const location = useLocation()
   console.log(location.state)
 
+  //will need to include back button and submit button
 
+  //need to consider passing state *back* through back button
+  
   return (
-    <section>
-      <div>{location.state.message}</div>
-      <img src={location.state.image} />
+    <section className='preview'>
+      <article className='front'>
+        <img src={location.state.image} />
+        <h1>PenPost</h1>
+      </article>
+
+      <article className='back'>
+        <div>{location.state.message}</div>
+      </article>
     </section>
   )
 }
