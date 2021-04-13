@@ -9,8 +9,6 @@ import Login from '../Login/Login'
 import UserLanding from '../User-Landing-Page/User-Landing'
 import PostcardForm from '../Postcard-Form/Postcard-Form'
 import Preview from '../Postcard-Preview/Postcard-Preview'
-//Styling Imports
-import './_App.scss'
 
 const App = () => {
   return (

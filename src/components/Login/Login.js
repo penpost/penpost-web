@@ -2,9 +2,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-//UI Imports
-import './Login.scss';
-
 const Login = () => {
   const [validLogin, setValidLogin] = useState(true)
   const [username, setUsername] = useState('')
