@@ -7,6 +7,7 @@ import Header from '../Header/Header'
 import Home from '../Home/Home'
 import Login from '../Login/Login'
 import UserLanding from '../User-Landing-Page/User-Landing'
+import PostcardForm from '../Postcard-Form/Postcard-Form'
 
 //Styling Imports
 import './_App.scss'
@@ -28,6 +29,11 @@ const App = () => {
       exact
       path='/user-landing'
       render={() => <UserLanding/>}
+      />
+      <Route
+        exact
+        path='/create-postcard'
+        render={() => <PostcardForm/>}
       />
     </main>
   )
