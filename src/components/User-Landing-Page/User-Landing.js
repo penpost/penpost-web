@@ -13,7 +13,7 @@ const UserLandingPage = () => {
     setUser({ id: 1, name: 'John', connections: false })
     setAddress({ street: '123 Wherever Street', city: 'Denver', state: 'Colorado', zip: 80202, country: 'United States' })
     setUserAbout('Add an about me!')
-    setConnection({id: 2, name:'Bill', country:'United States', about:'Howdy Im Bill'})
+    setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
   }, [])
 
   const updateHandler = (address, about) => {

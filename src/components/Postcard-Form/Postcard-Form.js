@@ -7,7 +7,7 @@ const PostcardForm = () => {
   const [message, setMessage] = useState('')
 
   const inputHandler = (e) => {
-    switch(e.target.id) {
+    switch (e.target.id) {
       case 'message':
         setMessage(e.target.value)
         break
@@ -34,8 +34,8 @@ const PostcardForm = () => {
         <Link to={{
           pathname: '/preview-postcard',
           state: {
-            image: image,
-            message: message
+            image,
+            message
           }
         }}>
           <input required type='submit' value='Preview Postcard' id='preview'/>

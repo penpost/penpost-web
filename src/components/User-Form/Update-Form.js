@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { CountryDropdown, RegionDropdown } from 'react-country-region-selector'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 
 const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
 
@@ -7,7 +8,7 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
   const [userAddress, setAddress] = useState(address)
 
   const inputHandler = (e) => {
-    switch(e.target.id) {
+    switch (e.target.id) {
       case 'street':
         setAddress({...userAddress, street: e.target.value})
         break;
@@ -62,4 +63,18 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
   )
 }
 
-export default UpdateUserInfoForm
+UpdateUserInfoForm.propTypes = {
+  address: PropTypes.shape({
+    street: PropTypes.string,
+    city: PropTypes.string,
+    state: PropTypes.string,
+    zip: PropTypes.number,
+    country: PropTypes.string
+  }),
+  userAbout: PropTypes.string,
+  updateHandler: PropTypes.func,
+  back: PropTypes.func
+}
+//back?
+
+export default UpdateUserInfoForm;
