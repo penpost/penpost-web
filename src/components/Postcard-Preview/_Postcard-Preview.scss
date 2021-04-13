@@ -4,32 +4,26 @@
 
 .front {
   border: 3px solid $ink-blue;
-  margin: 2rem;
+  margin: 1rem;
   padding: 1rem;
-  width: 90%;
-  position: relative;
-  //fixed height
+  width: 85%;
+  height: 25%;
+  object-fit: cover;
+  overflow: hidden;
+
+  //having trouble ensuring that image stays within boundaries.
 
   img {
     width: 100%;
-  }
-
-  h1 {
-    @include title-font;
-    font-size: 3rem;
-    position: fixed;
-    right: 2rem;
-    top: 2.6rem;
-    //This needs a closer look
   }
 }
 
 .back {
   border: 3px solid $ink-blue;
-  margin: 2rem;
+  margin: 1rem;
   padding: 1rem;
-  width: 90%;
-  //needs fixed height
+  width: 85%;
+  height: 250px;
 
   div {
     width: 50%

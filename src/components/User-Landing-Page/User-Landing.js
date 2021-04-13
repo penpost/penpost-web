@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import UpdateUserInfoForm from '../User-Form/Update-Form'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import UpdateUserInfoForm from '../User-Form/Update-Form';
 
 const UserLandingPage = () => {
   const [user, setUser] = useState({})
@@ -95,4 +95,4 @@ FIELDS: user id, user connection id
 
 */
 
-export default UserLandingPage
+export default UserLandingPage;

@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const PostcardForm = () => {
 
@@ -43,6 +44,11 @@ const PostcardForm = () => {
       </form>
     </section>
   )
+}
+
+PostcardForm.propTypes = {
+  image: PropTypes.string,
+  message: PropTypes.string
 }
 
 export default PostcardForm

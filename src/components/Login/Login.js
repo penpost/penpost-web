@@ -1,6 +1,7 @@
 //Imports
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Login = () => {
   const [validLogin, setValidLogin] = useState(true)
@@ -40,6 +41,12 @@ const Login = () => {
       }
    </section>
   )
+}
+
+Login.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string,
+  validLogin: PropTypes.boolean
 }
 
 export default Login;
