@@ -46,7 +46,7 @@ const Login = () => {
 Login.propTypes = {
   username: PropTypes.string,
   password: PropTypes.string,
-  validLogin: PropTypes.boolean
+  validLogin: PropTypes.bool
 }
 
 export default Login;
