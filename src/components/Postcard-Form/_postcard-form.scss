@@ -1,0 +1,16 @@
+.postcard-form {
+  @include display-flex
+
+  input {
+    width: 75vw;
+  }
+
+  textarea {
+    width: 75vw;
+    height: 30vh;
+  }
+
+  #preview {
+    @include button()
+  }
+}

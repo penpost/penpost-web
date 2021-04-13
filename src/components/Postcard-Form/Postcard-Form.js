@@ -9,7 +9,6 @@ const PostcardForm = () => {
   const location = useLocation()
 
   useEffect(() => {
-    console.log(location.state.image)
     if(location.state !== undefined) {
       setImage(location.state.image)
       setMessage(location.state.message)
@@ -31,7 +30,7 @@ const PostcardForm = () => {
 
 
   return (
-    <section>
+    <section className='postcard-form'>
       <h2>Create your postcard here!</h2>
       <form onChange={inputHandler}>
         <h3>Upload and select an image</h3>
@@ -39,7 +38,7 @@ const PostcardForm = () => {
         <input required type='text' value={image} id='image'/>
         <h3>Enter your message below</h3>
         <label htmlFor='message' value='message' />
-        <input type='textarea' maxLength='400' id='message' value={message} />
+        <textarea type='text' maxLength='400' id='message' value={message} />
         <label htmlFor='preview' value='preview postcard' />
         <Link to={{
           pathname: '/preview-postcard',
@@ -48,7 +47,7 @@ const PostcardForm = () => {
             message
           }
         }}>
-          <input required type='submit' value='Preview Postcard' id='preview'/>
+          <input required type='submit' value='Preview' id='preview'/>
         </Link>
       </form>
     </section>
