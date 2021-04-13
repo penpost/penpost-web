@@ -1,6 +1,7 @@
 // Imports
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 //Component Imports
 import App from './components/App/App';
@@ -8,9 +9,13 @@ import App from './components/App/App';
 //UI Imports
 import './index.scss';
 
-ReactDOM.render(
-  <React.StrictMode>
+const router = (
+  <BrowserRouter>
     <App />
-  </React.StrictMode>,
+  </BrowserRouter>
+);
+
+ReactDOM.render(
+  router,
   document.getElementById('root')
 );

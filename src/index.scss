@@ -1,4 +1,17 @@
 @import './variables';
 @import './components/App/App';
+<<<<<<< HEAD
 @import './components/User-Landing-Page/landing';
 @import './components/User-Form/user-form'
+=======
+@import './components/Header/Header';
+@import './components/Home/Home';
+@import './components/Login/Login';
+@import './components/User-Landing-Page/landing';
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: $white;
+}
+>>>>>>> origin

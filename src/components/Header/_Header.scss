@@ -1,0 +1,47 @@
+@import '../../variables';
+
+header {
+  width: 100%;
+  height: 4vh;
+  display: flex;
+  align-items: center;
+  background-color: $pink;
+  padding: .5rem;
+}
+
+header h1 {
+  @include title-font;
+  margin-right: 1rem;
+}
+
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+// NAVIGATION BAR
+
+ul {
+  list-style-type: none;
+}
+
+.menuOptions {
+  position: absolute;
+  top: 2.75rem;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  background-color: $white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+ul li a {
+  color: $ink-blue;
+  @include paragraph-font;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 1.2rem;
+}
