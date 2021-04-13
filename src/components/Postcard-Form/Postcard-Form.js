@@ -34,8 +34,12 @@ const PostcardForm = () => {
       <h2>Create your postcard here!</h2>
       <form onChange={inputHandler}>
         <h3>Upload and select an image</h3>
-        <label htmlFor='image' value='image upload'/>
-        <input required type='text' value={image} id='image'/>
+        <div>
+          <label htmlFor='image' value='image upload'/>
+          <input required type='text' value={image} id='image'/>
+          <label htmlFor='clear-image' value='clear image'/>
+          <button type='button' id='clear-image' onClick={() => setImage('')}>X</button>
+        </div>
         <h3>Enter your message below</h3>
         <label htmlFor='message' value='message' />
         <textarea type='text' maxLength='400' id='message' value={message} />

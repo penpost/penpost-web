@@ -2,12 +2,22 @@
   @include display-flex
 
   input {
-    width: 75vw;
+    width: 69vw;
+    margin: 0;
   }
 
   textarea {
     width: 75vw;
     height: 30vh;
+  }
+
+  div {
+    button {
+      width: 6vw;
+      background-color: $ink-blue;
+      color: $white;
+      margin: 0;
+    }
   }
 
   #preview {
