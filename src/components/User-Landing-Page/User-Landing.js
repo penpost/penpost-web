@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import UpdateUserInfoForm from '../User-Form/Update-Form'
 
 const UserLandingPage = () => {
@@ -53,7 +54,9 @@ const UserLandingPage = () => {
                 <h4 className='connection-name'>You are connected with {connection.name} ({connection.country})</h4>
                 <h4 className='about'>{connection.about}</h4>
                 <div className='button-wrapper'>
-                  <button>Send Postcard</button>
+                  <Link to='/create-postcard'>
+                    <button>Send Postcard</button>
+                  </Link>
                   <button>End Connection</button>
                 </div>
               </>
