@@ -1,0 +1,86 @@
+.preview {
+  @include display-flex;
+  @include paragraph-font
+
+  button {
+    @include button()
+  }
+
+  .front {
+    border: 1px solid $ink-blue;
+    margin: 1rem;
+    padding: .5rem .35rem .5rem;
+    width: 95%;
+    height: 40vh;
+    object-fit: cover;
+    overflow: hidden;
+    background: $off-white;
+
+    .image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .text {
+      position: absolute;
+      top: 6px;
+      right: 5px;
+      font-size: 15px;
+      @include title-font
+      color: white;
+      mix-blend-mode: difference;
+    }
+  }
+
+  .back {
+    border: 1px solid $ink-blue;
+    margin: 0rem 1rem 1rem 1rem;
+    padding: .5rem .25rem .5rem;
+    width: 95%;
+    height: 250px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.25fr .01fr 1fr;
+    background: $off-white;
+
+    .message {
+      margin: .75rem .5rem 1rem .5rem;
+      font-size: .9em;
+    }
+
+    .separation {
+      height: 100%;
+      width: 50%;
+      background: black;
+    }
+
+    .address {
+      margin: 4rem 1rem 4rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      hr {
+        width: 100%;
+      }
+    }
+
+    .stamp {
+      position: absolute;
+      height: 35px;
+      width: 35px;
+      border: 1px dashed black;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  .button-wrapper {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+  }
+}

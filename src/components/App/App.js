@@ -7,6 +7,8 @@ import Header from '../Header/Header'
 import Home from '../Home/Home'
 import Login from '../Login/Login'
 import UserLanding from '../User-Landing-Page/User-Landing'
+import PostcardForm from '../Postcard-Form/Postcard-Form'
+import Preview from '../Postcard-Preview/Postcard-Preview'
 import Error from '../Error/Error'
 
 //Styling Imports

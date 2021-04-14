@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import UpdateUserInfoForm from '../User-Form/Update-Form'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import UpdateUserInfoForm from '../User-Form/Update-Form';
 
 const UserLandingPage = () => {
   const [user, setUser] = useState({})
@@ -12,7 +13,7 @@ const UserLandingPage = () => {
     setUser({ id: 1, name: 'John', connections: false })
     setAddress({ street: '123 Wherever Street', city: 'Denver', state: 'Colorado', zip: 80202, country: 'United States' })
     setUserAbout('Add an about me!')
-    setConnection({id: 2, name:'Bill', country:'United States', about:'Howdy Im Bill'})
+    setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
   }, [])
 
   const updateHandler = (address, about) => {
@@ -53,7 +54,9 @@ const UserLandingPage = () => {
                 <h4 className='connection-name'>You are connected with {connection.name} ({connection.country})</h4>
                 <h4 className='about'>{connection.about}</h4>
                 <div className='button-wrapper'>
-                  <button>Send Postcard</button>
+                  <Link to='/create-postcard'>
+                    <button>Send Postcard</button>
+                  </Link>
                   <button>End Connection</button>
                 </div>
               </>
@@ -92,4 +95,4 @@ FIELDS: user id, user connection id
 
 */
 
-export default UserLandingPage
+export default UserLandingPage;

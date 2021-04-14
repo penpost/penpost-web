@@ -1,0 +1,38 @@
+.postcard-form {
+  @include display-flex
+
+  input {
+    width: 69vw;
+    margin: 0;
+  }
+
+  textarea {
+    width: 75vw;
+    height: 30vh;
+  }
+
+  div {
+    button {
+      width: 6vw;
+      background-color: $ink-blue;
+      color: $white;
+      margin: 0;
+    }
+  }
+
+  .image-thumbnail {
+    height: 10vh;
+    width: 25vw;
+    margin-top: 2em;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  #preview {
+    @include button()
+    margin-top: 2em;
+  }
+}

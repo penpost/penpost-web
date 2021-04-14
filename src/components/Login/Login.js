@@ -1,9 +1,7 @@
 //Imports
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-//UI Imports
-import './Login.scss';
+import PropTypes from 'prop-types';
 
 const Login = () => {
   const [validLogin, setValidLogin] = useState(true)
@@ -12,17 +10,11 @@ const Login = () => {
 
   //default is true! So no error message appears
   //if value is blank, then setValidLogin(false)
-  //display error message
-  //include minvalue for security
 
   const checkLogin = (event) => {
-    if ( username.length > 6 && password.length > 6 ) {
+    if ( username.length < 6 && password.length < 6 ) {
       event.preventDefault();
       setValidLogin(false);
-      console.log(validLogin)
-
-      //having some problem with automatic reloading?
-      //I want the
     }
   }
 
@@ -49,6 +41,12 @@ const Login = () => {
       }
    </section>
   )
+}
+
+Login.propTypes = {
+  username: PropTypes.string,
+  password: PropTypes.string,
+  validLogin: PropTypes.bool
 }
 
 export default Login;

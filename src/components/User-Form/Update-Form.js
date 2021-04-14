@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { CountryDropdown, RegionDropdown } from 'react-country-region-selector'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 
 const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
 
@@ -7,7 +8,7 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
   const [userAddress, setAddress] = useState(address)
 
   const inputHandler = (e) => {
-    switch(e.target.id) {
+    switch (e.target.id) {
       case 'street':
         setAddress({...userAddress, street: e.target.value})
         break;
@@ -37,7 +38,7 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
   }
 
   return (
-    <div className='form-wrapper'>
+    <section className='form-wrapper'>
         <form onChange={inputHandler} onSubmit={submitHandler}>
           <div>
             <label htmlFor='country'>Country:</label>
@@ -58,8 +59,22 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
         </form>
         <label htmlFor='back' value='back' />
         <button onClick={back} id='back'>Back</button>
-    </div>
+    </section>
   )
 }
 
-export default UpdateUserInfoForm
+UpdateUserInfoForm.propTypes = {
+  address: PropTypes.shape({
+    street: PropTypes.string,
+    city: PropTypes.string,
+    state: PropTypes.string,
+    zip: PropTypes.number,
+    country: PropTypes.string
+  }),
+  userAbout: PropTypes.string,
+  updateHandler: PropTypes.func,
+  back: PropTypes.func
+}
+//back?
+
+export default UpdateUserInfoForm;
