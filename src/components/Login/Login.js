@@ -24,11 +24,11 @@ const Login = () => {
       <form>
         <div>
           <label htmlFor='username'>username:</label>
-          <input type='text' id='username' name='username' value={username} minLength='6' maxLength='15' required onChange={e => setUsername(e.target.value)}/>
+          <input type='text' id='username' name='username' value={username} minLength='6' maxLength='15' autoComplete='on' required onChange={e => setUsername(e.target.value)}/>
         </div>
         <div>
           <label htmlFor='password'>password:</label>
-          <input type='password' id='password' name='password' value={password} minLength='6' maxLength='20' required onChange={e => setPassword(e.target.value)}/>
+          <input type='password' id='password' name='password' value={password} minLength='6' maxLength='20' autoComplete='off' required onChange={e => setPassword(e.target.value)}/>
         </div>
         <Link to='/user-landing' className='landingPage'>
           <button type='submit' name='button' aria-label='login' onClick={checkLogin}>Login</button>

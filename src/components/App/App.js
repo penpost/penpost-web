@@ -18,10 +18,36 @@ const App = () => {
   return (
     <main>
       <Header />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/login" render={() => <Login />} />
-      <Route exact path="/user-landing" render={() => <UserLanding />} />
-      <Route exact path="/error" render={() => <Error />} />
+      <Route
+        exact
+        path="/"
+        component={Home}
+      />
+      <Route
+        exact
+        path="/login"
+        render={() => <Login />}
+      />
+      <Route
+        exact
+        path="/user-landing"
+        render={() => <UserLanding />}
+      />
+      <Route
+        exact
+        path="/create-postcard"
+        render={() => <PostcardForm />}
+      />
+      <Route
+        exact
+        path="/preview-postcard"
+        render={() => <Preview />}
+      />
+      <Route
+        exact
+        path="/error"
+        render={() => <Error />}
+      />
     </main>
   );
 }

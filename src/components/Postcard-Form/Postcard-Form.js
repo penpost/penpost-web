@@ -9,7 +9,7 @@ const PostcardForm = () => {
   const location = useLocation()
 
   useEffect(() => {
-    if(location.state !== undefined) {
+    if (location.state !== undefined) {
       setImage(location.state.image)
       setMessage(location.state.message)
     }

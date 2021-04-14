@@ -42,9 +42,9 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
         <form onChange={inputHandler} onSubmit={submitHandler}>
           <div>
             <label htmlFor='country'>Country:</label>
-            <CountryDropdown value={userAddress.country} id='country'  />
+            <CountryDropdown value={userAddress.country} id='country' className='country' />
             <label htmlFor='state'>State/Region:</label>
-            <RegionDropdown country={userAddress.country} value={userAddress.state} id='state'  />
+            <RegionDropdown country={userAddress.country} value={userAddress.state} id='state' className='state' />
             <label htmlFor='street'>Street:</label>
             <input type='text' value={userAddress.street} id='street' onChange={inputHandler} />
             <label htmlFor='city'>City:</label>
@@ -55,10 +55,10 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
           <label htmlFor='about'>About:</label>
           <textarea type='text' value={about} id='about' maxLength='250' onChange={inputHandler} />
           <label htmlFor='submit' />
-          <input type='submit' value='Update' id='submit' />
+          <input type='submit' value='Update' id='submit' className='submit' />
         </form>
         <label htmlFor='back' value='back' />
-        <button onClick={back} id='back'>Back</button>
+        <button onClick={back} id='back' className='back' >Back</button>
     </section>
   )
 }
