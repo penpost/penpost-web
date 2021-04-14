@@ -1,0 +1,7 @@
+@import '../../variables';
+
+.errorSection {
+    @include basic-border;
+    @include centerHorizontally;
+    text-align: center;
+}
