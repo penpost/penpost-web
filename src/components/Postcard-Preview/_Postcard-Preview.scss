@@ -9,7 +9,7 @@
   .front {
     border: 1px solid $ink-blue;
     margin: 1rem;
-    padding: .5rem .25rem .5rem;
+    padding: .5rem .35rem .5rem;
     width: 95%;
     height: 40vh;
     object-fit: cover;
@@ -47,7 +47,8 @@
     background: $off-white;
 
     .message {
-      margin: .75rem .5rem .75rem .1rem;
+      margin: .75rem .5rem 1rem .5rem;
+      font-size: .9em;
     }
 
     .separation {

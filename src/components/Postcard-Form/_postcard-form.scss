@@ -20,7 +20,19 @@
     }
   }
 
+  .image-thumbnail {
+    height: 10vh;
+    width: 25vw;
+    margin-top: 2em;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
   #preview {
     @include button()
+    margin-top: 2em;
   }
 }
