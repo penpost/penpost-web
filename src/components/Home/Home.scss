@@ -1,35 +1,51 @@
-
 @import '../../variables';
 
 .homepage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: $ink-blue;
-    @include paragraph-font();
-    background-color: $white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $ink-blue;
+  @include paragraph-font();
+  background-color: $white;
 }
 
 .homepageTitle {
-    font-weight: bold;
-    font-size: 2rem;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: .5rem;
+}
+
+.penPostText {
+  @include title-font;
+  font-size: 4rem;
+  text-shadow: 2px 2px 3px $white, -2px 2px 3px $white, 2px -2px 3px $white, -2px -2px 3px $white;
+}
+
+.penPostImage {
+  padding: 2.5rem;
+  text-align: center;
+  width: 90vw;
+  opacity: 75%;
+  background-image: url('../assets/postcard-images.jpg');
+  background-size: cover;
 }
 
 .homepageParagraph {
-    padding: 1rem;
+  padding: 1rem;
 }
 
-a, button {
-    @include button()
+.buttonContainer a, .buttonContainer button {
+  @include button()
 }
 
 .buttonContainer {
-    padding: 1rem;
-    @include display-flex();
-    @include basic-border();
+  padding: 1rem;
+  @include display-flex();
+  @include basic-border();
 }
 
 .paragraphText {
-    font-size: 1 rem;
+  text-align: center;
+  font-size: 1.5rem;
 }
-

@@ -1,0 +1,43 @@
+.form-wrapper {
+
+  form {
+    @include display-flex
+  }
+
+  div {
+    @include display-flex;
+    align-self: flex-start;
+    margin-bottom: 1.5em;
+  }
+
+  input,
+  textarea {
+    align-self: flex-start;
+    @include paragraph-font ;
+  }
+
+  textarea {
+    width: 94vw;
+    height: 25vh;
+  }
+
+  label {
+    align-self: flex-start;
+    margin: .5em 0 .5em 0;
+  }
+
+  #state,
+  #country {
+    align-self: flex-start;
+  }
+
+  #submit {
+    margin-top: 2em;
+    @include button
+    @include centerHorizontally
+  }
+
+  button {
+    @include centerHorizontally
+  }
+}

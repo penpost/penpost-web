@@ -1,30 +1,55 @@
 .landing-wrapper {
-  width: 100vw;
-  height: 93vh;
-  margin-top: 7vh;
   background-color: $white;
-
-
-  .header-placeholder {
-    position: fixed;
-    margin-top: -7vh;
-    width: 100vw;
-    height: 7vh;
-    background-color: $pink
-  }
+  @include paragraph-font;
+  @include display-flex;
 
   h1 {
-    @include centerHorizontally()
     @include header-font()
     text-align: center;
-    width: 50vw;
+    margin: 0 0 1em 0;
+  }
+
+  h2 {
+    margin: 0 0 1em 0;
+    text-decoration: underline;
+    font-size: 1em;
+  }
+
+  h4 {
+    margin: 0;
+    width: 80vw;
+  }
+
+  button {
+    @include button;
+    margin-top: .2em;
   }
 
   .info-wrapper {
-    width: 90vw;
-    height: 25vh;
-    border: 1px solid $pink;
-    @include centerHorizontally();
-    background-color: rgba(0,0,0,.1)
+    @include basic-border;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    height: 33vh;
+    margin-bottom: 2em;
+    width: 85vw;
+  }
+
+  .address {
+    margin-bottom: .5em;
+  }
+
+  .about {
+    word-wrap: normal;
+  }
+
+  .connection-name {
+    margin-bottom: 1em;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
   }
 }
