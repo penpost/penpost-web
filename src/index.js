@@ -1,24 +1,34 @@
 // Imports
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Error from './components/Error/Error'
+import App from './components/App/App'
+import './index.scss'
 import { BrowserRouter } from 'react-router-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from } from "@apollo/client";
-import { onError } from '@apollo/client/link'
-import { cache } from "./cache";
-import Pages from "./pages";
-import injectStyles from "./styles";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  HttpLink,
+  from
+} from '@apollo/client';
+import { onError } from '@apollo/client/link/error'
 
-//Component Imports
-import App from './components/App/App';
+const errorLink = onError(({ graphqlErrors/*, networkError*/}) => {
+  if (graphqlErrors) {
+    return (<Error />)
+  }
+})
 
-//UI Imports
-import './index.scss';
+const link = from([
+  errorLink,
+  new HttpLink({ uri: 'http://localhost:3000' })
+])
 
-// Initialize ApolloClient
 const client = new ApolloClient({
-  cache,
-  uri: "http://localhost:4000/graphql"
-});
+  cache: new InMemoryCache(),
+  link: link
+})
 
 const router = (
   <BrowserRouter>
@@ -28,7 +38,7 @@ const router = (
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    router
+    {router}
   </ApolloProvider>,
     document.getElementById('root')
 );
