@@ -1,5 +1,5 @@
 //Imports
-import React from 'react'
+import React, { useState } from 'react'
 import { Route } from 'react-router-dom'
 
 //Components Imports
@@ -15,18 +15,20 @@ import Error from '../Error/Error'
 import './_App.scss'
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <main>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Route
         exact
         path="/"
-        component={Home}
+        render={() => <Home isLoggedIn={isLoggedIn} />}
       />
       <Route
         exact
         path="/login"
-        render={() => <Login />}
+        render={() => <Login setIsLoggedIn={setIsLoggedIn} />}
       />
       <Route
         exact

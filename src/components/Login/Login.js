@@ -3,18 +3,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Login = () => {
-  const [validLogin, setValidLogin] = useState(true)
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
-  //default is true! So no error message appears
-  //if value is blank, then setValidLogin(false)
+const Login = ( { setIsLoggedIn } ) => {
+  const [validLogin, setValidLogin] = useState(true);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const checkLogin = (event) => {
     if ( username.length < 6 && password.length < 6 ) {
       event.preventDefault();
       setValidLogin(false);
+    } else {
+      setIsLoggedIn(true);
     }
   }
 
@@ -46,7 +45,8 @@ const Login = () => {
 Login.propTypes = {
   username: PropTypes.string,
   password: PropTypes.string,
-  validLogin: PropTypes.bool
+  validLogin: PropTypes.bool,
+  setIsLoggedIn: PropTypes.func
 }
 
 export default Login;
