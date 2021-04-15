@@ -1,22 +1,23 @@
 .postcard-form {
-  @include display-flex
+  @include display-flex;
+  @include paragraph-font;
 
   input {
-    width: 69vw;
+    border: 1px solid $ink-blue;
+    width: 60vw;
+    padding: .3rem;
     margin: 0;
   }
 
   textarea {
+    border: 1px solid $ink-blue;
     width: 75vw;
     height: 30vh;
   }
 
-  div {
+  article {
     button {
-      width: 6vw;
-      background-color: $ink-blue;
-      color: $white;
-      margin: 0;
+      width: 30px;
     }
   }
 
@@ -31,8 +32,17 @@
     }
   }
 
-  #preview {
-    @include button()
+  h3 {
+    margin-bottom: 0;
+  }
+
+  p {
+    font-size: .8rem;
+    margin-top: 0;
+  }
+
+  .preview {
+    @include button;
     margin-top: 2em;
   }
 }
