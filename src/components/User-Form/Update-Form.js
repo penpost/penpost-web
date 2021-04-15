@@ -38,7 +38,7 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
   }
 
   return (
-    <section className='form-wrapper'>
+    <article className='form-wrapper'>
         <form onChange={inputHandler} onSubmit={submitHandler}>
           <div>
             <label htmlFor='country'>Country:</label>
@@ -59,7 +59,7 @@ const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
         </form>
         <label htmlFor='back' value='back' />
         <button onClick={back} id='back' className='back' >Back</button>
-    </section>
+    </article>
   )
 }
 

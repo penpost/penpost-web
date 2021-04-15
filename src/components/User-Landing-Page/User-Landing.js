@@ -25,9 +25,9 @@ const UserLandingPage = () => {
 
 
   return (
-    <div className='landing-wrapper'>
+    <section className='landing-wrapper'>
       {!updating &&
-        <>
+        <article>
           <h1>Welcome {user.name}</h1>
           <div className='info-wrapper'>
             <h2>Profile Info</h2>
@@ -62,11 +62,17 @@ const UserLandingPage = () => {
               </>
             }
           </div>
-        </>
+        </article>
       }
-      {updating && <UpdateUserInfoForm address={address} userAbout={userAbout} updateHandler={updateHandler} back={() => setUpdating(false)}/>}
+      { updating &&
+        <UpdateUserInfoForm
+          address={address}
+          userAbout={userAbout} updateHandler={updateHandler}
+          back={() => setUpdating(false)}
+        />
+      }
 
-    </div>
+    </section>
   )
 }
 
