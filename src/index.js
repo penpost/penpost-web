@@ -22,7 +22,7 @@ const errorLink = onError(({ graphqlErrors/*, networkError*/}) => {
 
 const link = from([
   errorLink,
-  new HttpLink({ uri: 'http://localhost:3000' })
+  new HttpLink({ uri: 'https://penpost-api.herokuapp.com/' })
 ])
 
 const client = new ApolloClient({

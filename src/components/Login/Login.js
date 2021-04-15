@@ -2,12 +2,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { useQuery, gql } from '@apollo/client'
+import { GET_USER } from '../../GraphQL/queries'
 
 const Login = () => {
   const [validLogin, setValidLogin] = useState(true)
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState('chuck@example.com')
   const [password, setPassword] = useState('')
 
+  const { error, loading, data } = useQuery(GET_USER)
   //default is true! So no error message appears
   //if value is blank, then setValidLogin(false)
 
@@ -23,7 +26,7 @@ const Login = () => {
       <h1 className='loginTitle'>Login</h1>
       <form>
         <div>
-          <label htmlFor='username'>username:</label>
+          <label htmlFor='username'>email:</label>
           <input type='text' id='username' name='username' value={username} minLength='6' maxLength='15' required onChange={e => setUsername(e.target.value)}/>
         </div>
         <div>
