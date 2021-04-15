@@ -5,9 +5,9 @@ import './_Header.scss';
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false)
-  
+
   return (
-    <header className='mobileHeader'>
+    <header>
       <Hamburger toggled={isOpen} toggle={setOpen} />
       {isOpen && (
         <div className="menuOptions">
