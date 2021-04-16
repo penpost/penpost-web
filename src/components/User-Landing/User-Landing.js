@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Component Imports
-import UpdateUserInfoForm from '../User-Form/Update-Form';
+import UpdateUserInfoForm from '../Update-Form/Update-Form';
 
 const UserLandingPage = () => {
   const [user, setUser] = useState({})
