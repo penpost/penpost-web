@@ -1,4 +1,7 @@
+// Imports
 import React from 'react';
+
+// Styling Imports
 import './_Error.scss';
 
 const Error = () => {

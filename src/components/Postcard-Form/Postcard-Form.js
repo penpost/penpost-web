@@ -1,7 +1,9 @@
+// Imports
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+// UI Imports
 import stamp from '../assets/postage-stamp.png'
 
 const PostcardForm = () => {
@@ -88,4 +90,4 @@ PostcardForm.propTypes = {
   message: PropTypes.string
 }
 
-export default PostcardForm
+export default PostcardForm;

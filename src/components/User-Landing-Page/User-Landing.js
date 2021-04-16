@@ -1,5 +1,8 @@
+// Imports
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+// Component Imports
 import UpdateUserInfoForm from '../User-Form/Update-Form';
 
 const UserLandingPage = () => {

@@ -1,5 +1,8 @@
+// Imports
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+
+// Component Imports
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 
 const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {

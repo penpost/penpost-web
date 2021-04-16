@@ -3,8 +3,10 @@ import React,  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-// UI & Component Imports
+// Component Imports
 import Hamburger from 'hamburger-react';
+
+// Styling Imports
 import './_Header.scss';
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
@@ -18,7 +20,6 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
     setIsLoggedIn(false)
   }
 
-  //when loggedOut is clicked, then setIsLoggedIn
   return (
     <header>
       <Hamburger toggled={isOpen} toggle={setOpen} />
