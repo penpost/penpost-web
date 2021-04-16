@@ -1,8 +1,8 @@
-import {gql, useQuery} from '@apollo/client'
+import {gql} from '@apollo/client'
 
 export const GET_USER = gql`
-  query {
-    user(id: ${id}) {
+  query user($id) {
+    user(id: $id) {
       name
       email
       description

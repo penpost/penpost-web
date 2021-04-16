@@ -1,8 +1,8 @@
 //Imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useQuery, gql } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 import { GET_USER } from '../../GraphQL/queries'
 
 const Login = () => {
@@ -10,9 +10,14 @@ const Login = () => {
   const [username, setUsername] = useState('chuck@example.com')
   const [password, setPassword] = useState('')
 
-  const { error, loading, data } = useQuery(GET_USER)
+  const { error, loading, data } = useQuery(GET_USER, {variables: {username}})
   //default is true! So no error message appears
   //if value is blank, then setValidLogin(false)
+
+  useEffect(() => {
+
+    console.log(data)
+  }, [data])
 
   const checkLogin = (event) => {
     if ( username.length < 6 && password.length < 6 ) {
@@ -20,6 +25,9 @@ const Login = () => {
       setValidLogin(false);
     }
   }
+
+  if (loading) return null
+  if (error) return error
 
   return (
     <section className='loginSection'>
