@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import UpdateUserInfoForm from '../User-Form/Update-Form';
+import { useQuery } from '@apollo/client'
+import { GET_USER } from '../../GraphQL/queries'
 
 const UserLandingPage = () => {
   const [user, setUser] = useState({})
@@ -8,13 +10,26 @@ const UserLandingPage = () => {
   const [userAbout, setUserAbout] = useState('')
   const [connection, setConnection] = useState({})
   const [updating, setUpdating] = useState(false)
+  const [queryData, setQueryData] = useState(null)
+
+  const { error, loading, data } = useQuery(GET_USER)
 
   useEffect(() => {
-    setUser({ id: 1, name: 'John', connections: false })
-    setAddress({ street: '123 Wherever Street', city: 'Denver', state: 'Colorado', zip: 80202, country: 'United States' })
-    setUserAbout('Add an about me!')
-    setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
+    setQueryData(data)
   }, [])
+
+
+  useEffect(() => {
+    console.log(queryData)
+    setUser({ name: data.user.name, activePal: data.user.activePal})
+    setAddress({ street: data.user.street, city: data.user.city, state: data.user.state, zip: data.user.zip, country: data.user.country })
+    checkDescription()
+    setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
+  }, [queryData])
+
+  const checkDescription = () => {
+    data.user.description ? setUserAbout(data.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, Click edit below to add an about me!')
+  }
 
   const updateHandler = (address, about) => {
     setUpdating(false)
@@ -22,7 +37,8 @@ const UserLandingPage = () => {
     setUserAbout(about)
   }
 
-
+  if (loading) return null
+  if (error) return error
 
   return (
     <div className='landing-wrapper'>

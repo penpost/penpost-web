@@ -10,14 +10,13 @@ const Login = () => {
   const [username, setUsername] = useState('chuck@example.com')
   const [password, setPassword] = useState('')
 
-  const { error, loading, data } = useQuery(GET_USER, {variables: {username}})
+    const { error, loading, data } = useQuery(GET_USER)
+
+
   //default is true! So no error message appears
   //if value is blank, then setValidLogin(false)
 
-  useEffect(() => {
 
-    console.log(data)
-  }, [data])
 
   const checkLogin = (event) => {
     if ( username.length < 6 && password.length < 6 ) {
@@ -26,8 +25,15 @@ const Login = () => {
     }
   }
 
-  if (loading) return null
-  if (error) return error
+  useEffect(() => {
+    console.log(data)
+  }, [data])
+
+
+    if (loading) return null
+    if (error) return error
+
+
 
   return (
     <section className='loginSection'>
@@ -61,3 +67,15 @@ Login.propTypes = {
 }
 
 export default Login;
+
+// useEffect(() => {
+//   console.log(data)
+//   setUser({ id: 1, name: data.user.name, activePal: data.user.activePal})
+//   setAddress({ street: data.user.street, city: data.user.city, state: data.user.state, zip: data.user.zip, country: data.user.country })
+//   checkDescription()
+//   setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
+// }, [data])
+//
+// const checkDescription = () => {
+//   data.user.description ? setUserAbout(data.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, click Edit below to add an about me!')
+// }
