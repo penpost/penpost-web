@@ -1,6 +1,10 @@
+// Imports
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
+// UI Imports
+import stamp from '../assets/postage-stamp.png';
 
 const PostcardForm = () => {
 
@@ -9,7 +13,7 @@ const PostcardForm = () => {
   const location = useLocation()
 
   useEffect(() => {
-    if(location.state !== undefined) {
+    if (location.state !== undefined) {
       setImage(location.state.image)
       setMessage(location.state.message)
     }
@@ -28,23 +32,44 @@ const PostcardForm = () => {
     }
   }
 
+  //cannot be a gif!
+
   return (
     <section className='postcard-form'>
       <h2>Create your postcard here!</h2>
       <form onChange={inputHandler} noValidate>
-        <h3>Upload and select an image</h3>
-        <div>
+        <h3>Select and Upload an Image</h3>
+        <p>(Please use a link)</p>
+        <article>
           <label htmlFor='image' value='image upload'/>
           <input type='text' value={image} id='image' required/>
-          <label htmlFor='clear-image' value='clear image'/>
+          <label htmlFor='clear-image' value='clear image' />
           <button type='button' id='clear-image' onClick={() => setImage('')}>X</button>
-        </div>
-        <section className='image-thumbnail'>
-          {image && <img src={image} alt='image thumbnail' />}
-        </section>
+        </article>
+        <article className='image-thumbnail'>
+          {!image &&
+            <img
+              src={stamp}
+              alt='an image placeholder'
+            />
+          }
+          {image &&
+            <img
+              src={image}
+              alt='your image thumbnail'
+            />
+          }
+        </article>
         <h3>Enter your message below</h3>
+        <p>(400 character limit)</p>
         <label htmlFor='message' value='message' />
-        <textarea type='text' maxLength='400' id='message' value={message} required/>
+        <textarea
+          type='text'
+          maxLength='400'
+          id='message'
+          value={message}
+          required
+        />
         <label htmlFor='preview' value='preview postcard' />
         <Link to={{
           pathname: '/preview-postcard',
@@ -53,7 +78,7 @@ const PostcardForm = () => {
             message
           }
         }}>
-          <input type='submit' value='Preview' id='preview' />
+          <input type='submit' value='Preview' id='preview' className='preview '/>
         </Link>
       </form>
     </section>
@@ -65,4 +90,4 @@ PostcardForm.propTypes = {
   message: PropTypes.string
 }
 
-export default PostcardForm
+export default PostcardForm;

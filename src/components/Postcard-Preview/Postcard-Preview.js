@@ -1,3 +1,4 @@
+// Imports
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -6,10 +7,6 @@ const Preview = () => {
   const location = useLocation();
   const { image, message } = location.state
   const divImage = {backgroundImage: 'url(' + image + ')', alt: 'your uploaded image'}
-
-  //will need to include back button and submit button
-
-  //need to consider passing state *back* through back button
 
   return (
     <section className='preview'>

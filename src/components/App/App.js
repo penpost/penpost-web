@@ -1,27 +1,55 @@
 //Imports
-import React from 'react'
-import { Route } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
 
-//Components Imports
-import Header from '../Header/Header'
-import Home from '../Home/Home'
-import Login from '../Login/Login'
-import UserLanding from '../User-Landing-Page/User-Landing'
-import PostcardForm from '../Postcard-Form/Postcard-Form'
-import Preview from '../Postcard-Preview/Postcard-Preview'
-import Error from '../Error/Error'
+//Component Imports
+import Header from '../Header/Header';
+import Home from '../Home/Home';
+import Login from '../Login/Login';
+import UserLanding from '../User-Landing/User-Landing';
+import PostcardForm from '../Postcard-Form/Postcard-Form';
+import Preview from '../Postcard-Preview/Postcard-Preview';
+import Error from '../Error/Error';
 
 //Styling Imports
-import './_App.scss'
+import './_App.scss';
 
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <main>
-      <Header />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/login" render={() => <Login />} />
-      <Route exact path="/user-landing" render={() => <UserLanding />} />
-      <Route exact path="/error" render={() => <Error />} />
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <Route
+        exact
+        path="/"
+        render={() => <Home isLoggedIn={isLoggedIn} />}
+      />
+      <Route
+        exact
+        path="/login"
+        render={() => <Login setIsLoggedIn={setIsLoggedIn} />}
+      />
+      <Route
+        exact
+        path="/user-landing"
+        render={() => <UserLanding />}
+      />
+      <Route
+        exact
+        path="/create-postcard"
+        render={() => <PostcardForm />}
+      />
+      <Route
+        exact
+        path="/preview-postcard"
+        render={() => <Preview />}
+      />
+      <Route
+        exact
+        path="/error"
+        render={() => <Error />}
+      />
     </main>
   );
 }
