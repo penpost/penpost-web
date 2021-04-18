@@ -14,12 +14,8 @@ const Preview = () => {
 
   const divImage = {backgroundImage: 'url(' + image + ')', alt: 'your uploaded image'}
 
-  //send message renders message component & then redicrects you after so many seconds to somewhere else
-
   const fireSuccessMessage = () => {
     setSuccess(true);
-    //how or where to we add functionality to redirect the user either create page or to landing page?
-    //upon a click of a button, go to another
   }
 
   return (

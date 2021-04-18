@@ -1,0 +1,17 @@
+.successMessage {
+  margin-top: 4rem;
+  width: 90%;
+  text-align: center;
+  @include display-flex;
+
+  h1 {
+    @include header-font;
+    margin: 0 0 .8rem 0;
+  }
+
+  p {
+    @include paragraph-font;
+    font-size: 1.2rem;
+    margin: 0 0 1rem 0;
+  }
+}
