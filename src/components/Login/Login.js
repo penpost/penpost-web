@@ -10,7 +10,7 @@ const Login = () => {
   const [username, setUsername] = useState('chuck@example.com')
   const [password, setPassword] = useState('')
 
-    const { error, loading, data } = useQuery(GET_USER)
+    const { error, loading, data } = useQuery(GET_USER, {variables: {id: 1}})
 
 
   //default is true! So no error message appears

@@ -31,6 +31,7 @@ const client = new ApolloClient({
   fetchOptions: {
     mode: 'no-cors',
   },
+  connectToDevTools: true
 })
 
 const router = (

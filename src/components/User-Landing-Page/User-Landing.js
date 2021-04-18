@@ -2,26 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import UpdateUserInfoForm from '../User-Form/Update-Form';
 import { useQuery } from '@apollo/client'
+import { client } from '../../index'
 import { GET_USER } from '../../GraphQL/queries'
 
 const UserLandingPage = () => {
-  const [user, setUser] = useState({})
+  const { error, loading, data } = useQuery(GET_USER)
+  const { user } = client.readQuery({
+    query: GET_USER
+  })
+  // const [user, setUser] = useState({name: data.user})
   const [address, setAddress] = useState({})
   const [userAbout, setUserAbout] = useState('')
   const [connection, setConnection] = useState({})
   const [updating, setUpdating] = useState(false)
   const [queryData, setQueryData] = useState(null)
 
-  const { error, loading, data } = useQuery(GET_USER)
 
   useEffect(() => {
     setQueryData(data)
+    console.log(user)
   }, [])
 
 
   useEffect(() => {
     console.log(queryData)
-    setUser({ name: data.user.name, activePal: data.user.activePal})
+    // setUser({ name: data.user.name, activePal: data.user.activePal})
     setAddress({ street: data.user.street, city: data.user.city, state: data.user.state, zip: data.user.zip, country: data.user.country })
     checkDescription()
     setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
