@@ -1,22 +1,18 @@
 @import '../../variables';
 
 header {
-  width: 100%;
+  width: stretch;
   height: 4vh;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: $pink;
   padding: .5rem;
-}
 
-header h1 {
-  @include title-font;
-  margin-right: 1rem;
-}
-
-.mobileHeader {
-  display: flex;
-  justify-content: space-between;
+  h1 {
+    @include title-font;
+    margin-right: 1rem;
+  }
 }
 
 // NAVIGATION BAR

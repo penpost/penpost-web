@@ -1,0 +1,6 @@
+@import '../../_variables.scss';
+
+main {
+  @include display-flex;
+  width: 100%;
+}
