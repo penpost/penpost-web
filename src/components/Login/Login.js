@@ -11,6 +11,8 @@ const Login = ( { setIsLoggedIn } ) => {
   const checkLogin = (event) => {
     if ( username.length < 6 && password.length < 6 ) {
       event.preventDefault();
+      setUsername('');
+      setPassword('');
       setValidLogin(false);
     } else {
       setIsLoggedIn(true);
