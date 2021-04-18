@@ -20,11 +20,7 @@ const App = () => {
   return (
     <main>
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      <Route
-        exact
-        path="/"
-        render={() => <Home isLoggedIn={isLoggedIn} />}
-      />
+      <Route exact path="/" render={() => <Home isLoggedIn={isLoggedIn} />} />
       <Route
         exact
         path="/login"
@@ -33,23 +29,11 @@ const App = () => {
       <Route
         exact
         path="/user-landing"
-        render={() => <UserLanding />}
+        render={() => <UserLanding isLoggedIn={isLoggedIn} />}
       />
-      <Route
-        exact
-        path="/create-postcard"
-        render={() => <PostcardForm />}
-      />
-      <Route
-        exact
-        path="/preview-postcard"
-        render={() => <Preview />}
-      />
-      <Route
-        exact
-        path="/error"
-        render={() => <Error />}
-      />
+      <Route exact path="/create-postcard" render={() => <PostcardForm />} />
+      <Route exact path="/preview-postcard" render={() => <Preview />} />
+      <Route exact path="/error" render={() => <Error />} />
     </main>
   );
 }

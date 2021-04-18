@@ -1,83 +1,107 @@
 // Imports
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
 
 // Component Imports
 import UpdateUserInfoForm from '../Update-Form/Update-Form';
 
-const UserLandingPage = () => {
-  const [user, setUser] = useState({})
-  const [address, setAddress] = useState({})
-  const [userAbout, setUserAbout] = useState('')
-  const [connection, setConnection] = useState({})
-  const [updating, setUpdating] = useState(false)
+const UserLandingPage = ({ isLoggedIn }) => {
+  const [user, setUser] = useState({});
+  const [address, setAddress] = useState({});
+  const [userAbout, setUserAbout] = useState("");
+  const [connection, setConnection] = useState({});
+  const [updating, setUpdating] = useState(false);
 
   useEffect(() => {
-    setUser({ id: 1, name: 'John', connections: false })
-    setAddress({ street: '123 Wherever Street', city: 'Denver', state: 'Colorado', zip: 80202, country: 'United States' })
-    setUserAbout('Add an about me!')
-    setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
-  }, [])
+    setUser({ id: 1, name: "John", connections: false });
+    setAddress({
+      street: "123 Wherever Street",
+      city: "Denver",
+      state: "Colorado",
+      zip: 80202,
+      country: "United States",
+    });
+    setUserAbout("Add an about me!");
+    setConnection({
+      id: 2,
+      name: "Bill",
+      country: "United States",
+      about: "Howdy Im Bill",
+    });
+  }, []);
 
   const updateHandler = (address, about) => {
-    setUpdating(false)
-    setAddress({ street: address.street, city: address.city, state: address.state, zip: address.zip, country: address.country})
-    setUserAbout(about)
-  }
-
-
+    setUpdating(false);
+    setAddress({
+      street: address.street,
+      city: address.city,
+      state: address.state,
+      zip: address.zip,
+      country: address.country,
+    });
+    setUserAbout(about);
+  };
 
   return (
-    <section className='landing-wrapper'>
-      {!updating &&
+    <section className="landing-wrapper">
+      {isLoggedIn && (
         <article>
           <h1>Welcome {user.name}</h1>
-          <div className='info-wrapper'>
+          <div className="info-wrapper">
             <h2>Profile Info</h2>
-            <div className='address'>
+            <div className="address">
               <h4>{address.street} </h4>
-              <h4>{address.city} {address.state}, {address.zip}</h4>
+              <h4>
+                {address.city} {address.state}, {address.zip}
+              </h4>
               <h4>{address.country}</h4>
             </div>
-            <h4 className='about'>{userAbout}</h4>
-            <div className='button-wrapper'>
+            <h4 className="about">{userAbout}</h4>
+            <div className="button-wrapper">
               <button onClick={() => setUpdating(true)}>Edit</button>
             </div>
           </div>
-          <div className='info-wrapper'>
+          <div className="info-wrapper">
             <h2>Connection</h2>
-            {!connection &&
+            {!connection && (
               <>
-                <h4>Looks like you arent connected with a pen pal, please click here to find one!</h4>
+                <h4>
+                  Looks like you arent connected with a pen pal, please click
+                  here to find one!
+                </h4>
                 <button>Click</button>
               </>
-            }
-            {connection &&
+            )}
+            {connection && (
               <>
-                <h4 className='connection-name'>You are connected with {connection.name} ({connection.country})</h4>
-                <h4 className='about'>{connection.about}</h4>
-                <div className='button-wrapper'>
-                  <Link to='/create-postcard'>
+                <h4 className="connection-name">
+                  You are connected with {connection.name} ({connection.country}
+                  )
+                </h4>
+                <h4 className="about">{connection.about}</h4>
+                <div className="button-wrapper">
+                  <Link to="/create-postcard">
                     <button>Send Postcard</button>
                   </Link>
                   <button>End Connection</button>
                 </div>
               </>
-            }
+            )}
           </div>
         </article>
-      }
-      { updating &&
+      )}
+      {updating && (
         <UpdateUserInfoForm
           address={address}
-          userAbout={userAbout} updateHandler={updateHandler}
+          userAbout={userAbout}
+          updateHandler={updateHandler}
           back={() => setUpdating(false)}
         />
-      }
-
+      )}
     </section>
-  )
-}
+  );
+};
 
 /* REQUIRED QUERIES
 
@@ -105,3 +129,7 @@ FIELDS: user id, user connection id
 */
 
 export default UserLandingPage;
+
+UserLandingPage.propTypes = {
+  isLoggedIn: PropTypes.bool,
+};
