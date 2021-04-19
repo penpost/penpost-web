@@ -8,16 +8,14 @@ orbs:
 workflows:
   build:
     jobs:
-<<<<<<< HEAD
       - cypress/run:
           executor: cypress/browsers-chrome69
           browser: chrome
           start: npm start
           wait-on: http://localhost:3000/
-=======
-      - cypress/run
+
+      # - cypress/run
           # executor: cypress/browsers-chrome69
           # browser: chrome
           # start: npm start
           # wait-on: http://localhost:3000/
->>>>>>> origin
