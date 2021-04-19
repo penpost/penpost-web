@@ -48,7 +48,7 @@ const Login = ( { setIsLoggedIn } ) => {
             name='email'
             value={email}
             minLength='6'
-            maxLength='15'
+            maxLength='30'
             autoComplete='on'
             required
             onChange={(e) => setEmail(e.target.value)}
@@ -70,6 +70,7 @@ const Login = ( { setIsLoggedIn } ) => {
         </div>
         <Link to='/user-landing' className='landingPage'>
           <button
+            className='loggedInButton'
             type='submit'
             name='button'
             aria-label='login'

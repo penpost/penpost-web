@@ -46,6 +46,4 @@ describe('Navbar', () => {
     cy.get(".hamburger-react").click()
     cy.get(".menu").should('contain', 'Home', 'Login')
   });
-
-
 })
