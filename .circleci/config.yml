@@ -15,7 +15,6 @@ workflows:
       - run: 'npm run build'
       - run: 'npm run test'
     jobs:
-      - build
       - cypress/run:
           executor: cypress/browsers-chrome69
           browser: chrome
