@@ -35,7 +35,7 @@ const PostcardForm = () => {
     }
   }
 
-  return (
+  return (w
     <section className='postcard-form'>
       <h2>Create your postcard here!</h2>
       <form onChange={inputHandler} noValidate>
