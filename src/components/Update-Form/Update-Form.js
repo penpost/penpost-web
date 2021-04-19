@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+// Apollo Imports
+
 // Component Imports
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 
-const UpdateUserInfoForm = ({address, userAbout, updateHandler, back}) => {
+const UpdateUserInfoForm = ({ address, userAbout, updateHandler, back }) => {
 
   const [about, setAbout] = useState(userAbout)
   const [userAddress, setAddress] = useState(address)
@@ -71,13 +73,12 @@ UpdateUserInfoForm.propTypes = {
     street: PropTypes.string,
     city: PropTypes.string,
     state: PropTypes.string,
-    zip: PropTypes.number,
+    zip: PropTypes.string,
     country: PropTypes.string
   }),
   userAbout: PropTypes.string,
   updateHandler: PropTypes.func,
   back: PropTypes.func
 }
-//back?
 
 export default UpdateUserInfoForm;

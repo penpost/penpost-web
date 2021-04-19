@@ -1,13 +1,19 @@
+// Imports
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import UpdateUserInfoForm from '../Update-Form/Update-Form';
+
+// Apollo Imports
 import { useQuery } from '@apollo/client'
 import GET_USER from '../../GraphQL/queries'
+
+// Component Imports
+import UpdateUserInfoForm from '../Update-Form/Update-Form';
+
 
 const UserLandingPage = () => {
 
   const { error, loading, data } = useQuery(GET_USER, {variables: {id: 2}})
-
+  //when login occurs, we will need to grab the id from localStorage 
 
   const [user, setUser] = useState({})
   const [address, setAddress] = useState({})
@@ -15,19 +21,18 @@ const UserLandingPage = () => {
   const [connection, setConnection] = useState({})
   const [updating, setUpdating] = useState(false)
 
-
-
   useEffect(() => {
-    if(!data) return
-    setUser({ name: data.user.name, activePal: data.user.activePal})
-    setAddress({ street: data.user.street, city: data.user.city, state: data.user.state, zip: data.user.zip, country: data.user.country })
-    checkDescription()
-    setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
+    const checkDescription = () => {
+      data.user.description ? setUserAbout(data.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, Click edit below to add an about me!')
+    }
+
+    if (!data) return
+      setUser({ name: data.user.name, activePal: data.user.activePal})
+      setAddress({ street: data.user.street, city: data.user.city, state: data.user.state, zip: data.user.zip, country: data.user.country })
+      checkDescription()
+      setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
   }, [data])
 
-  const checkDescription = () => {
-    data.user.description ? setUserAbout(data.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, Click edit below to add an about me!')
-  }
 
   const updateHandler = (address, about) => {
     setUpdating(false)
@@ -78,22 +83,16 @@ const UserLandingPage = () => {
           </div>
         </>
       }
-      {updating && <UpdateUserInfoForm address={address} userAbout={userAbout} updateHandler={updateHandler} back={() => setUpdating(false)}/>}
+      {updating &&
+        <UpdateUserInfoForm
+          address={address}
+          userAbout={userAbout}
+          updateHandler={updateHandler}
+          back={() => setUpdating(false)}
+        />}
 
     </div>
   )
 }
-
-/* REQUIRED QUERIES
-GET: USER DATA, AND CONNECTION NAME AND ABOUT
-FIELDS: user id, user name, user address, user about, connection ID, connection name, connection about
-          int      str          str(?)      setUser       int             str               str
-PATCH: UPDATE USER ADDRESS OR ABOUT
-FIELDS: user address, user about
-            str          str
-PATCH: END CONNECTION
-FIELDS: user id, user connection id
-           int            int
-*/
 
 export default UserLandingPage;

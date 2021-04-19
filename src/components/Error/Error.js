@@ -9,7 +9,7 @@ const Error = () => {
         <section className='errorSection'>
             <article className='errorMessage'>
                 <h2>We are having technical difficulties.</h2>
-                <p><em>Please refresh or revisit at a later time.</em></p>
+                <p><em>Please try again or revisit at a later time.</em></p>
             </article>
         </section>
     )

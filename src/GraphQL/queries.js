@@ -1,8 +1,8 @@
 import {gql} from '@apollo/client'
 
 export default gql`
-  query {
-    user(id: 2) {
+  query ($id: ID!) {
+    user(id: $id) {
       name
       email
       description
