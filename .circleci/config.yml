@@ -1,18 +1,16 @@
 version: 2.1
 
-orbs:
-  node: circleci/node@4.2.1
-  cypress: cypress-io/cypress@1.27.0
-# Orb for vercel?
+jobs:
+  build:
+    docker:
+      - image: cypress/included:3.2.0
+    steps:
+      - checkout
+      - run: 'npm install'
+      - run: 'npm run build'
+      - run: 'npm run test'
 
 workflows:
+  my_workflow:
     jobs:
-      - cypress/run
-          # executor: cypress/browsers-chrome69
-          # browser: chrome
-          # start: npm start
-          # wait-on: http://localhost:3000/
-
-          # Double check syntax
-          # compare Alia's syntax
-          # Additions to package.json?
+      - build
