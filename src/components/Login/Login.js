@@ -1,9 +1,9 @@
 //Imports
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useQuery } from '@apollo/client'
-import { GET_USER } from '../../GraphQL/queries'
+// import { useQuery } from '@apollo/client'
+// import { GET_USER } from '../../GraphQL/queries'
 
 const Login = ( { setIsLoggedIn } ) => {
   const [validLogin, setValidLogin] = useState(true);
@@ -11,7 +11,7 @@ const Login = ( { setIsLoggedIn } ) => {
   const [password, setPassword] = useState('');
   // ensure error component is added once connected to the backend
 
-
+  // const { error, loading, data } = useQuery(GET_USER)
 
   const checkLogin = (event) => {
     if ( email.length < 6 || password.length < 6 ) {
@@ -24,13 +24,13 @@ const Login = ( { setIsLoggedIn } ) => {
     }
   }
 
-  useEffect(() => {
-    console.log(data)
-  }, [data])
-
-
-    if (loading) return null
-    if (error) return error
+  // useEffect(() => {
+  //   console.log(data)
+  // }, [data])
+  //
+  //
+  //   if (loading) return null
+  //   if (error) return error
 
 
 
