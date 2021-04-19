@@ -9,7 +9,6 @@ import SuccessMessage from '../Success-Message/Success-Message';
 const Preview = () => {
   const location = useLocation();
   const { image, message } = location.state;
-
   const [ success, setSuccess ] = useState(false);
 
   const divImage = {backgroundImage: 'url(' + image + ')', alt: 'your uploaded image'}

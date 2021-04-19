@@ -16,7 +16,7 @@ import { onError } from '@apollo/client/link/error'
 
 const errorLink = onError(({ graphqlErrors/*, networkError*/}) => {
   if (graphqlErrors) {
-    return (<Error />)
+    return ( <Error /> )
   }
 })
 

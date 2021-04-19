@@ -8,9 +8,16 @@ import stamp from '../assets/postage-stamp.png';
 
 const PostcardForm = () => {
 
-  const [image, setImage] = useState(null)
-  const [message, setMessage] = useState(null)
-  const location = useLocation()
+  const [image, setImage] = useState('');
+  const [message, setMessage] = useState('');
+  const location = useLocation();
+
+  useEffect((image, message) => {
+    if(image === undefined || message === undefined) {
+      setImage('')
+      setMessage('')
+    }
+  }, [])
 
   useEffect(() => {
     if (location.state !== undefined) {
@@ -31,8 +38,6 @@ const PostcardForm = () => {
           return
     }
   }
-
-  //cannot be a gif!
 
   return (
     <section className='postcard-form'>
