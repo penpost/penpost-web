@@ -8,19 +8,22 @@ import stamp from '../assets/postage-stamp.png';
 
 const PostcardForm = () => {
 
-  const [image, setImage] = useState(null);
-  const [message, setMessage] = useState(null);
   const location = useLocation();
+  const [image, setImage] = useState('');
+  const [message, setMessage] = useState('');
 
-  if (location.state !== undefined) {
-    setImage(location.state.image)
-    setMessage(location.state.message)
-  }
+  useEffect((image, message) => {
+    if(image === null || message === null) {
+      setImage('')
+      setMessage('')
+    } else if (location.state !== undefined) {
+      setImage(location.state.image)
+      setMessage(location.state.message)
+    }
+  }, [])
 
-  if (image === null || message === null) {
-    setImage('')
-    setMessage('')
-  }
+  // still throwing error of missing location.state dependency
+
 
   const inputHandler = (e) => {
     switch (e.target.id) {
@@ -35,7 +38,7 @@ const PostcardForm = () => {
     }
   }
 
-  return (w
+  return (
     <section className='postcard-form'>
       <h2>Create your postcard here!</h2>
       <form onChange={inputHandler} noValidate>
@@ -43,7 +46,13 @@ const PostcardForm = () => {
         <p>(Please use a link)</p>
         <article>
           <label htmlFor='image' value='image upload'/>
-          <input type='text' value={image} id='image' onChange={inputHandler} required/>
+          <input
+            type='text'
+            value={image}
+            id='image'
+            onChange={inputHandler}
+            required
+          />
           <label htmlFor='clear-image' value='clear image' />
           <button type='button' id='clear-image' onClick={() => setImage('')}>X</button>
         </article>
@@ -67,8 +76,8 @@ const PostcardForm = () => {
         <textarea
           type='text'
           maxLength='400'
-          id='message'
           value={message}
+          id='message'
           onChange={inputHandler}
           required
         />
