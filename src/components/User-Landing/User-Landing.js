@@ -13,6 +13,7 @@ import UpdateUserInfoForm from '../Update-Form/Update-Form';
 const UserLandingPage = () => {
 
   const { error, loading, data } = useQuery(GET_USER, {variables: {id: 2}})
+  //when login occurs, we will need to grab the id from localStorage 
 
   const [user, setUser] = useState({})
   const [address, setAddress] = useState({})
