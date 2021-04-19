@@ -11,6 +11,7 @@ import PostcardForm from '../Postcard-Form/Postcard-Form';
 import Preview from '../Postcard-Preview/Postcard-Preview';
 import Error from '../Error/Error';
 
+
 //Styling Imports
 import './_App.scss';
 
@@ -34,6 +35,8 @@ const App = () => {
       <Route exact path="/create-postcard" render={() => <PostcardForm />} />
       <Route exact path="/preview-postcard" render={() => <Preview />} />
       <Route exact path="/error" render={() => <Error />} />
+      <Route exact path="/create-postcard" render={() => <PostcardForm />} />
+      <Route exact path="/preview-postcard" render={() => <Preview />} />
     </main>
   );
 }

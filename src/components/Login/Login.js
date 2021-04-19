@@ -2,12 +2,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+// import { useQuery } from '@apollo/client'
+// import { GET_USER } from '../../GraphQL/queries'
 
 const Login = ( { setIsLoggedIn } ) => {
   const [validLogin, setValidLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState('');
   // ensure error component is added once connected to the backend
+
+  // const { error, loading, data } = useQuery(GET_USER)
 
   const checkLogin = (event) => {
     if ( email.length < 6 || password.length < 6 ) {
@@ -19,6 +23,16 @@ const Login = ( { setIsLoggedIn } ) => {
       setIsLoggedIn(true);
     }
   }
+
+  // useEffect(() => {
+  //   console.log(data)
+  // }, [data])
+  //
+  //
+  //   if (loading) return null
+  //   if (error) return error
+
+
 
   return (
     <section className="loginSection">
@@ -83,3 +97,15 @@ Login.propTypes = {
 }
 
 export default Login;
+
+// useEffect(() => {
+//   console.log(data)
+//   setUser({ id: 1, name: data.user.name, activePal: data.user.activePal})
+//   setAddress({ street: data.user.street, city: data.user.city, state: data.user.state, zip: data.user.zip, country: data.user.country })
+//   checkDescription()
+//   setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
+// }, [data])
+//
+// const checkDescription = () => {
+//   data.user.description ? setUserAbout(data.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, click Edit below to add an about me!')
+// }
