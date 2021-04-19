@@ -7,15 +7,23 @@ orbs:
 
 workflows:
   build:
+    docker:
+      - image: cypress/included:3.2.0
+    steps:
+      - checkout
+      - run: 'npm install'
+      - run: 'npm run build'
+      - run: 'npm run test'
     jobs:
+      my_workflow:
+          jobs:
+            - build
       - cypress/run:
           executor: cypress/browsers-chrome69
           browser: chrome
           start: npm start
           wait-on: http://localhost:3000/
 
-      # - cypress/run
-          # executor: cypress/browsers-chrome69
-          # browser: chrome
-          # start: npm start
-          # wait-on: http://localhost:3000/
+          # Double check syntax
+          # compare Alia's syntax
+          # Additions to package.json?
