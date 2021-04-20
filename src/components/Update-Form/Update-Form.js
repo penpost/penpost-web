@@ -3,14 +3,18 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Apollo Imports
+import { useMutation } from '@apollo/client';
+import UPDATE_USER from '../../GraphQL/update-user';
+import GET_USER from '../../GraphQL/queries'
 
 // Component Imports
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 
-const UpdateUserInfoForm = ({ address, userAbout, updateHandler, back }) => {
+const UpdateUserInfoForm = ({ queryData, back }) => {
 
-  const [about, setAbout] = useState(userAbout)
-  const [userAddress, setAddress] = useState(address)
+  const [about, setAbout] = useState(queryData.description)
+  const [userAddress, setAddress] = useState({ street: queryData.street , city: queryData.city , state: queryData.state , zip: queryData.zip , country: queryData.country })
+  const [updateUser] = useMutation(UPDATE_USER)
 
   const inputHandler = (e) => {
     switch (e.target.id) {
@@ -39,7 +43,11 @@ const UpdateUserInfoForm = ({ address, userAbout, updateHandler, back }) => {
 
   const submitHandler = (event) => {
     event.preventDefault()
-    updateHandler(userAddress, about)
+    back()
+    updateUser({
+      variables: { id: 3, description: about },
+      refetchQueries: [{ query: GET_USER, variables: { id: 3 } }],
+    })
   }
 
   return (
@@ -69,15 +77,14 @@ const UpdateUserInfoForm = ({ address, userAbout, updateHandler, back }) => {
 }
 
 UpdateUserInfoForm.propTypes = {
-  address: PropTypes.shape({
+  queryData: PropTypes.shape({
     street: PropTypes.string,
     city: PropTypes.string,
     state: PropTypes.string,
     zip: PropTypes.string,
-    country: PropTypes.string
+    country: PropTypes.string,
+    description: PropTypes.string
   }),
-  userAbout: PropTypes.string,
-  updateHandler: PropTypes.func,
   back: PropTypes.func
 }
 

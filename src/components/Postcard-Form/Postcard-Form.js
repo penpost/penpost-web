@@ -20,6 +20,7 @@ const PostcardForm = () => {
       setImage(location.state.image)
       setMessage(location.state.message)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // still throwing error of missing location.state dependency

@@ -1,77 +1,57 @@
 // Imports
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 // Apollo Imports
 import { useQuery } from '@apollo/client'
 import GET_USER from '../../GraphQL/queries'
+import { client } from '../../index'
 
 // Component Imports
 import UpdateUserInfoForm from '../Update-Form/Update-Form';
 
-
 const UserLandingPage = () => {
-
-  const { error, loading, data } = useQuery(GET_USER, {variables: {id: 2}})
-  //when login occurs, we will need to grab the id from localStorage 
-
-  const [user, setUser] = useState({})
-  const [address, setAddress] = useState({})
-  const [userAbout, setUserAbout] = useState('')
-  const [connection, setConnection] = useState({})
+  //when login occurs, we will need to grab the id from localStorage
   const [updating, setUpdating] = useState(false)
+  const { error, loading } = useQuery(GET_USER, {variables: {id: 3}})
+  const queryData = client.readQuery({
+    query: GET_USER,
+    variables: { id: 3,}
+  });
 
-  useEffect(() => {
-    const checkDescription = () => {
-      data.user.description ? setUserAbout(data.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, Click edit below to add an about me!')
-    }
-
-    if (!data) return
-      setUser({ name: data.user.name, activePal: data.user.activePal})
-      setAddress({ street: data.user.street, city: data.user.city, state: data.user.state, zip: data.user.zip, country: data.user.country })
-      checkDescription()
-      setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
-  }, [data])
-
-
-  const updateHandler = (address, about) => {
-    setUpdating(false)
-    setAddress({ street: address.street, city: address.city, state: address.state, zip: address.zip, country: address.country})
-    setUserAbout(about)
-  }
-
-  if (loading) return null
+  if (loading) return <p>Loading...</p>
   if (error) return (<Redirect to='/Error' />)
 
   return (
     <div className='landing-wrapper'>
       {!updating &&
         <>
-          <h1>Welcome {user.name}</h1>
+          <h1>Welcome {queryData.user.name}</h1>
           <div className='info-wrapper'>
             <h2>Profile Info</h2>
             <div className='address'>
-              <h4>{address.street} </h4>
-              <h4>{address.city} {address.state}, {address.zip}</h4>
-              <h4>{address.country}</h4>
+              <h4>{queryData.user.street} </h4>
+              <h4>{queryData.user.city} {queryData.user.state}, {queryData.user.zip}</h4>
+              <h4>{queryData.user.country}</h4>
             </div>
-            <h4 className='about'>{userAbout}</h4>
+            {queryData.user.description && <h4 className='about'>{queryData.user.description}</h4>}
+            {!queryData.user.description && <h4 className='about'>{'Uh oh, looks like you are missing an about me! Click Edit below to add one!'}</h4>}
             <div className='button-wrapper'>
               <button onClick={() => setUpdating(true)}>Edit</button>
             </div>
           </div>
           <div className='info-wrapper'>
             <h2>Connection</h2>
-            {!connection &&
+            {!queryData.user.activePal &&
               <>
                 <h4>Looks like you arent connected with a pen pal, please click here to find one!</h4>
                 <button>Click</button>
               </>
             }
-            {connection &&
+            {queryData.user.activePal &&
               <>
-                <h4 className='connection-name'>You are connected with {connection.name} ({connection.country})</h4>
-                <h4 className='about'>{connection.about}</h4>
+                <h4 className='connection-name'>You are connected with {queryData.user.activePal.name} ({queryData.user.activePal.country})</h4>
+                <h4 className='about'>{queryData.user.activePal.about}</h4>
                 <div className='button-wrapper'>
                   <Link to='/create-postcard'>
                     <button>Send Postcard</button>
@@ -85,9 +65,7 @@ const UserLandingPage = () => {
       }
       {updating &&
         <UpdateUserInfoForm
-          address={address}
-          userAbout={userAbout}
-          updateHandler={updateHandler}
+          queryData={queryData.user}
           back={() => setUpdating(false)}
         />}
 
