@@ -54,7 +54,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           </ul>
         </div>
       )}
-      <h1>PenPost</h1>
+      <h1 className='headerTitle'>PenPost</h1>
     </header>
   );
 }

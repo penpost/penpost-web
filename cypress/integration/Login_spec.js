@@ -1,21 +1,28 @@
-const baseURL = 'http://localhost:3000/';
+const baseURL = "http://localhost:3000";
 
-describe('Logging In', () => {
+describe("Login", () => {
   beforeEach(() => {
-    cy.visit(baseURL)
-  })
+    cy.visit(`${baseURL}/login`);
+  });
 
-  it('Should greet the user & describe app', () => {
-    cy.get('main h1').contains('welcome')
-    cy.get('main p').should('be.visible')
-  })
+  it("Should display a login message", () => {
+    cy.get(".loginTitle").should("contain", "Login");
+  });
 
-  it('Should have a logged out version of nav bar & home', () => {
+  it("Should have be able to fill out the email address and password input", () => {
+    cy.get("input[name=email]").type('kelsie@yahoo.com').should('have.value', 'kelsie@yahoo.com')
+    cy.get("input[name=password]")
+      .type("kelsie123")
+      .should("have.value", "kelsie123");
+  });
 
-  })
-
-  it('Should be able to login page and log in', () => {
-
-  })
-
+  it("Should be able to click the login button after filling out the input fields", () => {
+    cy.get("input[name=email]")
+      .type("kelsie@yahoo.com")
+      .should("have.value", "kelsie@yahoo.com");
+    cy.get("input[name=password]")
+      .type("kelsie123")
+      .should("have.value", "kelsie123");
+    cy.get(".loggedInButton").click();
+  });
 })

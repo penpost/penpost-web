@@ -26,7 +26,7 @@ const UserLandingPage = () => {
     <div className='landing-wrapper'>
       {!updating &&
         <>
-          <h1>Welcome {queryData.user.name}</h1>
+          <h1 className='landing-title'>Welcome {user.name}</h1>
           <div className='info-wrapper'>
             <h2>Profile Info</h2>
             <div className='address'>
@@ -37,7 +37,7 @@ const UserLandingPage = () => {
             {queryData.user.description && <h4 className='about'>{queryData.user.description}</h4>}
             {!queryData.user.description && <h4 className='about'>{'Uh oh, looks like you are missing an about me! Click Edit below to add one!'}</h4>}
             <div className='button-wrapper'>
-              <button onClick={() => setUpdating(true)}>Edit</button>
+              <button className="edit-button" onClick={() => setUpdating(true)}>Edit</button>
             </div>
           </div>
           <div className='info-wrapper'>
