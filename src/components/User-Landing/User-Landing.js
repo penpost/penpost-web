@@ -12,65 +12,85 @@ import UpdateUserInfoForm from '../Update-Form/Update-Form';
 
 const UserLandingPage = () => {
   //when login occurs, we will need to grab the id from localStorage
-  const [updating, setUpdating] = useState(false)
-  const { error, loading } = useQuery(GET_USER, {variables: {id: 3}})
+  // eslint-disable-next-line
+  const userID = JSON.parse(localStorage.getItem('userData'));
+  console.log(userID);
+  const [updating, setUpdating] = useState(false);
+  const { error, loading } = useQuery(GET_USER, { variables: { id: 3 } });
   const queryData = client.readQuery({
     query: GET_USER,
-    variables: { id: 3,}
+    variables: { id: 3 },
   });
 
-  if (loading) return <p>Loading...</p>
-  if (error) return (<Redirect to='/Error' />)
+  if (loading) return <p>Loading...</p>;
+  if (error) return <Redirect to="/Error" />;
 
   return (
-    <div className='landing-wrapper'>
-      {!updating &&
+    <div className="landing-wrapper">
+      {!updating && (
         <>
           <h1>Welcome {queryData.user.name}</h1>
-          <div className='info-wrapper'>
+          <div className="info-wrapper">
             <h2>Profile Info</h2>
-            <div className='address'>
+            <div className="address">
               <h4>{queryData.user.street} </h4>
-              <h4>{queryData.user.city} {queryData.user.state}, {queryData.user.zip}</h4>
+              <h4>
+                {queryData.user.city} {queryData.user.state},{" "}
+                {queryData.user.zip}
+              </h4>
               <h4>{queryData.user.country}</h4>
             </div>
-            {queryData.user.description && <h4 className='about'>{queryData.user.description}</h4>}
-            {!queryData.user.description && <h4 className='about'>{'Uh oh, looks like you are missing an about me! Click Edit below to add one!'}</h4>}
-            <div className='button-wrapper'>
+            {queryData.user.description && (
+              <h4 className="about">{queryData.user.description}</h4>
+            )}
+            {!queryData.user.description && (
+              <h4 className="about">
+                {
+                  "Uh oh, looks like you are missing an about me! Click Edit below to add one!"
+                }
+              </h4>
+            )}
+            <div className="button-wrapper">
               <button onClick={() => setUpdating(true)}>Edit</button>
             </div>
           </div>
-          <div className='info-wrapper'>
+          <div className="info-wrapper">
             <h2>Connection</h2>
-            {!queryData.user.activePal &&
+            {!queryData.user.activePal && (
               <>
-                <h4>Looks like you arent connected with a pen pal, please click here to find one!</h4>
+                <h4>
+                  Looks like you arent connected with a pen pal, please click
+                  here to find one!
+                </h4>
                 <button>Click</button>
               </>
-            }
-            {queryData.user.activePal &&
+            )}
+            {queryData.user.activePal && (
               <>
-                <h4 className='connection-name'>You are connected with {queryData.user.activePal.name} ({queryData.user.activePal.country})</h4>
-                <h4 className='about'>{queryData.user.activePal.about}</h4>
-                <div className='button-wrapper'>
-                  <Link to='/create-postcard'>
+                <h4 className="connection-name">
+                  You are connected with {queryData.user.activePal.name} (
+                  {queryData.user.activePal.country})
+                </h4>
+                <h4 className="about">{queryData.user.activePal.about}</h4>
+                <div className="button-wrapper">
+                  <Link to="/create-postcard">
                     <button>Send Postcard</button>
                   </Link>
                   <button>End Connection</button>
                 </div>
               </>
-            }
+            )}
           </div>
         </>
-      }
-      {updating &&
+      )}
+      {updating && (
         <UpdateUserInfoForm
           queryData={queryData.user}
           back={() => setUpdating(false)}
-        />}
-
+        />
+      )}
     </div>
-  )
+  );
 }
 
 export default UserLandingPage;

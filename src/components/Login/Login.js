@@ -15,7 +15,7 @@ const Login = ( { setIsLoggedIn } ) => {
   // ensure error component is added once connected to the backend
 
   // const { error, loading, data } = useQuery(GET_USER)
-  const [signinUser] = useMutation(SIGNIN_USER, {onCompleted: data => localStorage.setItem('userData', JSON.stringify(data))});
+  const [signinUser] = useMutation(SIGNIN_USER, {onCompleted: data => localStorage.setItem('userData', JSON.stringify(data.signinUser.user.id))});
   
   const checkLogin = (event) => {
     if ( email.length < 6 || password.length < 6 ) {
@@ -28,20 +28,8 @@ const Login = ( { setIsLoggedIn } ) => {
       signinUser({
         variables: {email: email, password: password}
       });
-      //console.log(signedIn.data)
-      // invoke helper function, assign ID into local storage
     }
   }
-
-  // useEffect(() => {
-  //   console.log(data)
-  // }, [data])
-  //
-  //
-  //   if (loading) return null
-  //   if (error) return error
-
-
 
   return (
     <section className='loginSection'>
@@ -106,15 +94,3 @@ Login.propTypes = {
 }
 
 export default Login;
-
-// useEffect(() => {
-//   console.log(data)
-//   setUser({ id: 1, name: data.user.name, activePal: data.user.activePal})
-//   setAddress({ street: data.user.street, city: data.user.city, state: data.user.state, zip: data.user.zip, country: data.user.country })
-//   checkDescription()
-//   setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
-// }, [data])
-//
-// const checkDescription = () => {
-//   data.user.description ? setUserAbout(data.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, click Edit below to add an about me!')
-// }
