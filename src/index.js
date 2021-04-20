@@ -25,7 +25,7 @@ const link = from([
   new HttpLink({ uri: 'https://penpost-api.herokuapp.com/graphql' })
 ])
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: link,
   fetchOptions: {
