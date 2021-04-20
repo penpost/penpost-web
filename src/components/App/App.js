@@ -1,5 +1,5 @@
 // Imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 
 // Component Imports
@@ -17,6 +17,12 @@ import './_App.scss';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("userData")) === null
+      ? setIsLoggedIn(false)
+      : setIsLoggedIn(true);
+  }, [])
 
   return (
     <main>

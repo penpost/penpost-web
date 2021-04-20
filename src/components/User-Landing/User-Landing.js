@@ -1,6 +1,6 @@
 // Imports
 import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 
 // Apollo Imports
 import { useQuery } from '@apollo/client'
@@ -23,7 +23,9 @@ const UserLandingPage = () => {
   });
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <Redirect to="/Error" />;
+  if (error) console.log(error);
+
+  // return <Redirect to="/Error" />;
 
   return (
     <div className="landing-wrapper">
