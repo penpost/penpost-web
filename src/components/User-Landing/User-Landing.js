@@ -11,15 +11,15 @@ import { client } from '../../index'
 import UpdateUserInfoForm from '../Update-Form/Update-Form';
 
 const UserLandingPage = () => {
-  //when login occurs, we will need to grab the id from localStorage
+  const userID = JSON.parse(localStorage.getItem("userData"));
   // eslint-disable-next-line
-  const userID = JSON.parse(localStorage.getItem('userData'));
-  console.log(userID);
   const [updating, setUpdating] = useState(false);
-  const { error, loading } = useQuery(GET_USER, { variables: { id: 3 } });
+  const { error, loading } = useQuery(GET_USER, {
+    variables: { id: parseInt(userID) },
+  });
   const queryData = client.readQuery({
     query: GET_USER,
-    variables: { id: 3 },
+    variables: { id: parseInt(userID) },
   });
 
   if (loading) return <p>Loading...</p>;
@@ -85,6 +85,7 @@ const UserLandingPage = () => {
       )}
       {updating && (
         <UpdateUserInfoForm
+          userID={parseInt(userID)}
           queryData={queryData.user}
           back={() => setUpdating(false)}
         />
