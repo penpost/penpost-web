@@ -1,0 +1,19 @@
+{
+  "data": {
+    "user": {
+      "name": "Kelsie Frost",
+      "email": "kelsie@yahoo.com",
+      "description": "I like traveling",
+      "street": "Okyozuka",
+      "city": "Kawazawa",
+      "state": "Ishikawa",
+      "zip": "921-8801",
+      "country": "Japan",
+      "addressVerified": true,
+      "activePal": {
+        "name": "Gabby Berry",
+        "description": null
+        }
+    }
+  }
+}

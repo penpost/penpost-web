@@ -26,7 +26,7 @@ const UserLandingPage = () => {
     <div className='landing-wrapper'>
       {!updating &&
         <>
-          <h1 className='landing-title'>Welcome {user.name}</h1>
+          <h1 className='landing-title'>Welcome {queryData.user.name}</h1>
           <div className='info-wrapper'>
             <h2>Profile Info</h2>
             <div className='address'>
