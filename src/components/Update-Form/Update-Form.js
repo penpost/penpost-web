@@ -85,8 +85,6 @@ UpdateUserInfoForm.propTypes = {
     country: PropTypes.string,
     description: PropTypes.string
   }),
-  userAbout: PropTypes.string,
-  updateHandler: PropTypes.func,
   back: PropTypes.func
 }
 
