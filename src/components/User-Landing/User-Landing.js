@@ -47,7 +47,7 @@ const UserLandingPage = () => {
     <div className='landing-wrapper'>
       {!updating &&
         <>
-          <h1>Welcome {user.name}</h1>
+          <h1 className='landing-title'>Welcome {user.name}</h1>
           <div className='info-wrapper'>
             <h2>Profile Info</h2>
             <div className='address'>
@@ -57,7 +57,7 @@ const UserLandingPage = () => {
             </div>
             <h4 className='about'>{userAbout}</h4>
             <div className='button-wrapper'>
-              <button onClick={() => setUpdating(true)}>Edit</button>
+              <button className="edit-button" onClick={() => setUpdating(true)}>Edit</button>
             </div>
           </div>
           <div className='info-wrapper'>
