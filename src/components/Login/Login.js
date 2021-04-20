@@ -15,21 +15,20 @@ const Login = ( { setIsLoggedIn } ) => {
   // ensure error component is added once connected to the backend
 
   // const { error, loading, data } = useQuery(GET_USER)
-  const [signinUser] = useMutation(SIGNIN_USER);
+  const [signinUser] = useMutation(SIGNIN_USER, {onCompleted: data => localStorage.setItem('userData', JSON.stringify(data))});
   
   const checkLogin = (event) => {
     if ( email.length < 6 || password.length < 6 ) {
       event.preventDefault();
-      console.log('not logged in')
       setEmail('');
       setPassword('');
       setValidLogin(false);
     } else {
       setIsLoggedIn(true);
       signinUser({
-        variables: {email: email, password: password},
-        onCompleted: data => {console.log(data)}
+        variables: {email: email, password: password}
       });
+      //console.log(signedIn.data)
       // invoke helper function, assign ID into local storage
     }
   }
