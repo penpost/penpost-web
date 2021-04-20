@@ -66,7 +66,6 @@ const UserLandingPage = () => {
       {updating &&
         <UpdateUserInfoForm
           queryData={queryData.user}
-          updateHandler={() => setUpdating(false)}
           back={() => setUpdating(false)}
         />}
 
