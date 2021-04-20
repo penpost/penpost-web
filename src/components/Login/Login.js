@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // Apollo Imports
-// import { useQuery } from '@apollo/client'
+import { useMutation } from '@apollo/client';
 // import { GET_USER } from '../../GraphQL/queries'
+import { SIGNIN_USER } from '../../GraphQL/signin-user';
 
 const Login = ( { setIsLoggedIn } ) => {
   const [validLogin, setValidLogin] = useState(true);
@@ -14,6 +15,8 @@ const Login = ( { setIsLoggedIn } ) => {
   // ensure error component is added once connected to the backend
 
   // const { error, loading, data } = useQuery(GET_USER)
+  const [signinUser] = useMutation(SIGNIN_USER);
+
 
   const checkLogin = (event) => {
     if ( email.length < 6 || password.length < 6 ) {
@@ -23,8 +26,11 @@ const Login = ( { setIsLoggedIn } ) => {
       setValidLogin(false);
     } else {
       setIsLoggedIn(true);
+      // invoke helper function, assign ID into local storage
     }
   }
+
+  // ensure logout button clears localStorage
 
   // useEffect(() => {
   //   console.log(data)

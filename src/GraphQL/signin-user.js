@@ -1,4 +1,6 @@
-const SIGNINUSER_MUTATION = gql`
+import { gql } from "@apollo/client";
+
+export default gql`
   mutation signinUser( input: {
       credentials: {
         $email: String!, 
