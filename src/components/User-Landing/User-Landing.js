@@ -1,5 +1,5 @@
 // Imports
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
 // Apollo Imports
@@ -10,36 +10,14 @@ import { client } from '../../index'
 // Component Imports
 import UpdateUserInfoForm from '../Update-Form/Update-Form';
 
-
 const UserLandingPage = () => {
-
-  const { error, loading, data } = useQuery(GET_USER, {variables: {id: 3}})
+  //when login occurs, we will need to grab the id from localStorage
+  const [updating, setUpdating] = useState(false)
+  const { error, loading } = useQuery(GET_USER, {variables: {id: 3}})
   const queryData = client.readQuery({
     query: GET_USER,
     variables: { id: 3,}
   });
-
-  //when login occurs, we will need to grab the id from localStorage
-
-  // const [connection, setConnection] = useState({})
-  const [updating, setUpdating] = useState(false)
-
-  useEffect(() => {
-    if (!data) return
-    console.log(data)
-    // console.log(queryData.user)
-    // queryData.user.description ? setUserAbout(queryData.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, Click edit below to add an about me!')
-    // setUser({ name: queryData.user.name, activePal: queryData.user.activePal})
-    // setAddress({ street: queryData.user.street, city: queryData.user.city, state: queryData.user.state, zip: queryData.user.zip, country: queryData.user.country })
-    // setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
-  }, [data])
-
-
-  const updateHandler = () => {
-    setUpdating(false)
-    // setAddress({ street: address.street, city: address.city, state: address.state, zip: address.zip, country: address.country})
-    // setUserAbout(about)
-  }
 
   if (loading) return <p>Loading...</p>
   if (error) return (<Redirect to='/Error' />)
@@ -87,10 +65,8 @@ const UserLandingPage = () => {
       }
       {updating &&
         <UpdateUserInfoForm
-          // address={address}
-          // userAbout={userAbout}
           queryData={queryData.user}
-          updateHandler={updateHandler}
+          updateHandler={() => setUpdating(false)}
           back={() => setUpdating(false)}
         />}
 
