@@ -11,7 +11,6 @@ import './_Header.scss';
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const [isOpen, setOpen] = useState(false)
-  console.log('HEADER IS LOGGED IN', isLoggedIn)
 
   const closeHamburger = () => {
     setOpen(false)

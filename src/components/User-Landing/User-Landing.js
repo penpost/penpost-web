@@ -1,6 +1,6 @@
 // Imports
 import React, { useState } from 'react';
-import { Link  } from 'react-router-dom';
+import { Link, Redirect  } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 // Apollo Imports
@@ -12,24 +12,18 @@ import { client } from '../../index'
 import UpdateUserInfoForm from '../Update-Form/Update-Form';
 
 const UserLandingPage = ({ id }) => {
-  // const userID = JSON.parse(localStorage.getItem("userData"));
 
   const [updating, setUpdating] = useState(false);
   const { loading } = useQuery(GET_USER, {
-    // variables: { id: parseInt(userID) },
     variables: { id: id },
-    onError: error => console.log(error)
+    onError: <Redirect to="/Error" />
   });
   const queryData = client.readQuery({
     query: GET_USER,
-    // variables: { id: parseInt(userID) },
     variables: { id: id },
   });
 
   if (loading) return <p>Loading...</p>;
-
-
-  // return <Redirect to="/Error" />;
 
   return (
     <div className="landing-wrapper">

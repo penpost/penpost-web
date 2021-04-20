@@ -21,15 +21,12 @@ const App = () => {
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem("userData"))
-    console.log('STORED DATA', storedData)
     if (storedData !== null) {
-      console.log('FIRING')
       setIsLoggedIn(true)
       setID(parseInt(storedData))
     } else {
       setIsLoggedIn(false)
     }
-    console.log('APP IS LOGGED IN', isLoggedIn)
   }, [])
 
   return (
