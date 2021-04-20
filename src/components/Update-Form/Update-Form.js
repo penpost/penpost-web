@@ -3,14 +3,29 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 // Apollo Imports
+import { useMutation } from '@apollo/client';
+import UPDATE_USER from '../../GraphQL/update-user';
+import GET_USER from '../../GraphQL/queries'
 
 // Component Imports
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 
-const UpdateUserInfoForm = ({ address, userAbout, updateHandler, back }) => {
+const UpdateUserInfoForm = ({ address, userAbout, back }) => {
 
   const [about, setAbout] = useState(userAbout)
   const [userAddress, setAddress] = useState(address)
+  const [updateUser] = useMutation(UPDATE_USER)
+    // {variables: { id: 2, description: about,
+      // country: userAddress.country,
+      // state: userAddress.state,
+      // street: userAddress.street,
+      // city: userAddress.city,
+      // zip: userAddress.zip
+    // }},
+  // {refetchQueries: [{ query: GET_USER, variables: { id: 2 } }]},
+  // {input: {id: 2, description: about}},
+  // )
+
 
   const inputHandler = (e) => {
     switch (e.target.id) {
@@ -39,7 +54,11 @@ const UpdateUserInfoForm = ({ address, userAbout, updateHandler, back }) => {
 
   const submitHandler = (event) => {
     event.preventDefault()
-    updateHandler(userAddress, about)
+    back()
+    updateUser({
+      variables: { id: 2, description: about },
+      refetchQueries: [{ query: GET_USER, variables: { id: 2 } }],
+    })
   }
 
   return (
