@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 // Apollo Imports
 import { useMutation } from '@apollo/client';
 // import { GET_USER } from '../../GraphQL/queries'
-import { SIGNIN_USER } from '../../GraphQL/signin-user';
+import SIGNIN_USER from '../../GraphQL/signin-user';
 
 const Login = ( { setIsLoggedIn } ) => {
   const [validLogin, setValidLogin] = useState(true);
@@ -16,21 +16,23 @@ const Login = ( { setIsLoggedIn } ) => {
 
   // const { error, loading, data } = useQuery(GET_USER)
   const [signinUser] = useMutation(SIGNIN_USER);
-
-
+  
   const checkLogin = (event) => {
     if ( email.length < 6 || password.length < 6 ) {
       event.preventDefault();
+      console.log('not logged in')
       setEmail('');
       setPassword('');
       setValidLogin(false);
     } else {
       setIsLoggedIn(true);
+      signinUser({
+        variables: {email: email, password: password},
+        onCompleted: data => {console.log(data)}
+      });
       // invoke helper function, assign ID into local storage
     }
   }
-
-  // ensure logout button clears localStorage
 
   // useEffect(() => {
   //   console.log(data)
@@ -54,7 +56,7 @@ const Login = ( { setIsLoggedIn } ) => {
             name='email'
             value={email}
             minLength='6'
-            maxLength='15'
+            maxLength='30'
             autoComplete='on'
             required
             onChange={(e) => setEmail(e.target.value)}

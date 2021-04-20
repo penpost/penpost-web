@@ -1,16 +1,17 @@
 import { gql } from "@apollo/client";
 
 export default gql`
-  mutation signinUser( input: {
+  mutation ($email: String!, $password: String!) {
+    signinUser(input: {
       credentials: {
-        $email: String!, 
-        $password: String!
-      }
-  }){
-      token
-        user {
-          id
-        }
-    }
+        email: $email, 
+        password: $password
+      } 
+    }){
+        token
+          user {
+            id
+          }
+       }
   }
 `;
