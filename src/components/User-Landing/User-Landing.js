@@ -13,28 +13,25 @@ import UpdateUserInfoForm from '../Update-Form/Update-Form';
 
 const UserLandingPage = () => {
 
-  const { error, loading, data } = useQuery(GET_USER, {variables: {id: 2}})
+  const { error, loading, data } = useQuery(GET_USER, {variables: {id: 3}})
   const queryData = client.readQuery({
     query: GET_USER,
-    variables: { id: 2,}
+    variables: { id: 3,}
   });
 
   //when login occurs, we will need to grab the id from localStorage
 
-
-
-  // const [user, setUser] = useState({})
-  // const [address, setAddress] = useState({})
-  const [userAbout, setUserAbout] = useState('')
-  const [connection, setConnection] = useState({})
+  // const [connection, setConnection] = useState({})
   const [updating, setUpdating] = useState(false)
 
   useEffect(() => {
     if (!data) return
-    queryData.user.description ? setUserAbout(queryData.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, Click edit below to add an about me!')
+    console.log(data)
+    // console.log(queryData.user)
+    // queryData.user.description ? setUserAbout(queryData.user.description) : setUserAbout('Uh oh, looks like you are missing an about me, Click edit below to add an about me!')
     // setUser({ name: queryData.user.name, activePal: queryData.user.activePal})
     // setAddress({ street: queryData.user.street, city: queryData.user.city, state: queryData.user.state, zip: queryData.user.zip, country: queryData.user.country })
-    setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
+    // setConnection({ id: 2, name: 'Bill', country: 'United States', about: 'Howdy Im Bill'})
   }, [data])
 
 
@@ -44,7 +41,7 @@ const UserLandingPage = () => {
     // setUserAbout(about)
   }
 
-  if (loading) return null
+  if (loading) return <p>Loading...</p>
   if (error) return (<Redirect to='/Error' />)
 
   return (
@@ -59,23 +56,24 @@ const UserLandingPage = () => {
               <h4>{queryData.user.city} {queryData.user.state}, {queryData.user.zip}</h4>
               <h4>{queryData.user.country}</h4>
             </div>
-            <h4 className='about'>{userAbout}</h4>
+            {queryData.user.description && <h4 className='about'>{queryData.user.description}</h4>}
+            {!queryData.user.description && <h4 className='about'>{'Uh oh, looks like you are missing an about me! Click Edit below to add one!'}</h4>}
             <div className='button-wrapper'>
               <button onClick={() => setUpdating(true)}>Edit</button>
             </div>
           </div>
           <div className='info-wrapper'>
             <h2>Connection</h2>
-            {!connection &&
+            {!queryData.user.activePal &&
               <>
                 <h4>Looks like you arent connected with a pen pal, please click here to find one!</h4>
                 <button>Click</button>
               </>
             }
-            {connection &&
+            {queryData.user.activePal &&
               <>
-                <h4 className='connection-name'>You are connected with {connection.name} ({connection.country})</h4>
-                <h4 className='about'>{connection.about}</h4>
+                <h4 className='connection-name'>You are connected with {queryData.user.activePal.name} ({queryData.user.activePal.country})</h4>
+                <h4 className='about'>{queryData.user.activePal.about}</h4>
                 <div className='button-wrapper'>
                   <Link to='/create-postcard'>
                     <button>Send Postcard</button>
