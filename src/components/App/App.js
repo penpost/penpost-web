@@ -1,5 +1,5 @@
 // Imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 
 // Component Imports
@@ -16,7 +16,18 @@ import Error from '../Error/Error';
 import './_App.scss';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [userID, setID] = useState(null)
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("userData"))
+    if (storedData !== null) {
+      setIsLoggedIn(true)
+      setID(parseInt(storedData))
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [])
 
   return (
     <main>
@@ -40,6 +51,7 @@ const App = () => {
         render={() =>
           <UserLanding
             isLoggedIn={isLoggedIn}
+            id ={ userID }
           />}
       />
       <Route

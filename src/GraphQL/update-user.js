@@ -1,57 +1,22 @@
-
-import { gql } from '@apollo/client'
-// import GET_USER from './queries'
+import { gql } from '@apollo/client';
 
 export default gql `
-  mutation ($id: ID!, $description: String!) {
+  mutation ($id: ID!, $description: String!, $street: String!, $city: String!, $country: String!, $state: String!, $zip: String!) {
     updateUser(input: {
       id: $id
       description: $description
+      country: $country
+      state: $state
+      city: $city
+      street: $street
+      zip: $zip
     }) {
       description
+      country
+      state
+      city
+      street
+      zip
     }
   }
 `
-
-// export default gql `
-//   mutation ($id: ID!, $description: String!) {
-//     updateUser(input: {
-//       id: $id
-//       description: $description
-//     }) {
-//       description
-//       country
-//       state
-//       street
-//       city
-//       zip
-//     }
-//   }
-// `
-
-
-// import * as UpdateUser from './__generated__/UpdateUser'
-//
-// export const updateUser = () => {
-//   const [mutate, {data, error}] = useMutation<
-//     UpdateUserTypes.UpdateUser,
-//     UpdateUserTypes.UpdateUserVariables
-//   >(
-//     UPDATE_USER,
-//     {
-//       update (cache, { data }) {
-//         const updatedUserData = data?.updateUser.user
-//         const existingUser = cache.readQuery<GetUser>({
-//           query: GET_USER,
-//           data: {
-//             user: [
-//               ...existingUser?.user,
-//               updatedUserData,
-//             ],
-//           },
-//         });
-//       }
-//     }
-//   )
-//   return { mutate, data, error }
-// }
