@@ -21,12 +21,6 @@ const UpdateUserInfoForm = ({ queryData, back, userID }) => {
   });
   const [updateUser] = useMutation(UPDATE_USER);
 
-  // useEffect((about) => {
-  //   if (about === null) {
-  //     setAbout("");
-  //   }
-  // }, []);
-
   const inputHandler = (e) => {
     switch (e.target.id) {
       case "street":

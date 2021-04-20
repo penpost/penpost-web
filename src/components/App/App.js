@@ -16,12 +16,20 @@ import Error from '../Error/Error';
 import './_App.scss';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [userID, setID] = useState(null)
 
   useEffect(() => {
-    JSON.parse(localStorage.getItem("userData")) === null
-      ? setIsLoggedIn(false)
-      : setIsLoggedIn(true);
+    const storedData = JSON.parse(localStorage.getItem("userData"))
+    console.log('STORED DATA', storedData)
+    if (storedData !== null) {
+      console.log('FIRING')
+      setIsLoggedIn(true)
+      setID(parseInt(storedData))
+    } else {
+      setIsLoggedIn(false)
+    }
+    console.log('APP IS LOGGED IN', isLoggedIn)
   }, [])
 
   return (
@@ -46,6 +54,7 @@ const App = () => {
         render={() =>
           <UserLanding
             isLoggedIn={isLoggedIn}
+            id ={ userID }
           />}
       />
       <Route

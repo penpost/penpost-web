@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import './_Home.scss';
 
 const Home = ({ isLoggedIn }) => {
+    console.log('HOME IS LOGGED IN', isLoggedIn)
     return (
       <section className='homepage'>
         <h1 className='homepageTitle'>Welcome to</h1>

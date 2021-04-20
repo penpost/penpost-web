@@ -1,6 +1,7 @@
 // Imports
 import React, { useState } from 'react';
 import { Link  } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Apollo Imports
 import { useQuery } from '@apollo/client'
@@ -10,20 +11,23 @@ import { client } from '../../index'
 // Component Imports
 import UpdateUserInfoForm from '../Update-Form/Update-Form';
 
-const UserLandingPage = () => {
-  const userID = JSON.parse(localStorage.getItem("userData"));
-  // eslint-disable-next-line
+const UserLandingPage = ({ id }) => {
+  // const userID = JSON.parse(localStorage.getItem("userData"));
+
   const [updating, setUpdating] = useState(false);
-  const { error, loading } = useQuery(GET_USER, {
-    variables: { id: parseInt(userID) },
+  const { loading } = useQuery(GET_USER, {
+    // variables: { id: parseInt(userID) },
+    variables: { id: id },
+    onError: error => console.log(error)
   });
   const queryData = client.readQuery({
     query: GET_USER,
-    variables: { id: parseInt(userID) },
+    // variables: { id: parseInt(userID) },
+    variables: { id: id },
   });
 
   if (loading) return <p>Loading...</p>;
-  if (error) console.log(error);
+
 
   // return <Redirect to="/Error" />;
 
@@ -87,13 +91,17 @@ const UserLandingPage = () => {
       )}
       {updating && (
         <UpdateUserInfoForm
-          userID={parseInt(userID)}
+          userID={id}
           queryData={queryData.user}
           back={() => setUpdating(false)}
         />
       )}
     </div>
   );
+}
+
+UserLandingPage.propTypes = {
+  id: PropTypes.number
 }
 
 export default UserLandingPage;
