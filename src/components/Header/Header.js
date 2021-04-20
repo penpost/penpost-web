@@ -18,6 +18,11 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
   const updateLogIn = () => {
     setIsLoggedIn(false)
+    clearLocalStorage()
+  }
+
+  const clearLocalStorage = () => {
+    localStorage.clear()
   }
 
   return (
