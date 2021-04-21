@@ -9,6 +9,8 @@ import Hamburger from 'hamburger-react';
 // Styling Imports
 import './_Header.scss';
 
+import { client } from '../../index'
+
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   const [isOpen, setOpen] = useState(false)
 
@@ -23,6 +25,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
   const clearLocalStorage = () => {
     localStorage.clear()
+    client.resetStore()
   }
 
   return (
