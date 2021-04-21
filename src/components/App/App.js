@@ -51,7 +51,7 @@ const App = () => {
         render={() =>
           <UserLanding
             isLoggedIn={isLoggedIn}
-            id ={ userID }
+            id={ userID }
           />}
       />
       <Route
