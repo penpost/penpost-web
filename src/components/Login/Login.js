@@ -5,16 +5,13 @@ import PropTypes from 'prop-types';
 
 // Apollo Imports
 import { useMutation } from '@apollo/client';
-// import { GET_USER } from '../../GraphQL/queries'
 import SIGNIN_USER from '../../GraphQL/signin-user';
 
 const Login = ( { setIsLoggedIn, setID } ) => {
   const [validLogin, setValidLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // ensure error component is added once connected to the backend
 
-  // const { error, loading, data } = useQuery(GET_USER)
   const [signinUser] = useMutation(SIGNIN_USER, {
     onCompleted: data => {
       setID(parseInt(data.signinUser.user.id))
