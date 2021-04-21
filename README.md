@@ -17,6 +17,8 @@ This project comes out of desire to connect people together and bring a sense of
 
 Originally, this project was built as a capstone project through Turing School of Software & Design. [See rubric here](https://mod4.turing.io/projects/capstone).
 
+![demo](https://media.giphy.com/media/TVf6ZrcC8FQ5wfXStS/giphy.gif)
+
 ## Features
 
 Please visit our website at:
