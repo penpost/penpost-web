@@ -23,22 +23,22 @@ const UpdateUserInfoForm = ({ queryData, back, userID }) => {
 
   const inputHandler = (e) => {
     switch (e.target.id) {
-      case "street":
+      case 'street':
         setAddress({ ...userAddress, street: e.target.value });
         break;
-      case "city":
+      case 'city':
         setAddress({ ...userAddress, city: e.target.value });
         break;
-      case "state":
+      case 'state':
         setAddress({ ...userAddress, state: e.target.value });
         break;
-      case "zip":
+      case 'zip':
         setAddress({ ...userAddress, zip: e.target.value });
         break;
-      case "country":
+      case 'country':
         setAddress({ ...userAddress, country: e.target.value });
         break;
-      case "about":
+      case 'about':
         setAbout(e.target.value);
         break;
       default:
@@ -64,57 +64,58 @@ const UpdateUserInfoForm = ({ queryData, back, userID }) => {
   };
 
   return (
-    <article className="form-wrapper">
+    <article className='form-wrapper'>
       <form onChange={inputHandler} onSubmit={submitHandler}>
         <div>
-          <label htmlFor="country">Country:</label>
+          <label htmlFor='country'>Country:</label>
           <CountryDropdown
             value={userAddress.country}
-            id="country"
-            className="country"
+            id='country'
+            className='country'
           />
-          <label htmlFor="state">State/Region:</label>
+          <label htmlFor='state'>State/Region:</label>
           <RegionDropdown
             country={userAddress.country}
             value={userAddress.state}
-            id="state"
-            className="state"
+            id='state'
+            className='state'
           />
-          <label htmlFor="street">Street:</label>
+          <label htmlFor='street'>Street:</label>
           <input
-            type="text"
+            type='text'
             value={userAddress.street}
-            id="street"
+            id='street'
             onChange={inputHandler}
           />
-          <label htmlFor="city">City:</label>
+          <label htmlFor='city'>City:</label>
           <input
-            type="text"
+            type='text'
             value={userAddress.city}
-            id="city"
+            id='city'
             onChange={inputHandler}
           />
-          <label htmlFor="zip">Zip/Postal:</label>
+          <label htmlFor='zip'>Zip/Postal:</label>
           <input
-            type="number"
+            type='number'
             value={userAddress.zip}
-            id="zip"
+            id='zip'
             onChange={inputHandler}
           />
         </div>
-        <label htmlFor="about">About:</label>
+        <label htmlFor='about'>About:</label>
         <textarea
-          type="text"
+          type='text'
           value={about}
-          id="about"
-          maxLength="250"
+          id='about'
+          className='about'
+          maxLength='250'
           onChange={inputHandler}
         />
-        <label htmlFor="submit" />
-        <input type="submit" value="Update" id="submit" className="submit" />
+        <label htmlFor='submit' />
+        <input type='submit' value='Update' id='submit' className='submit' />
       </form>
-      <label htmlFor="back" value="back" />
-      <button onClick={back} id="back" className="back">
+      <label htmlFor='back' value='back' />
+      <button onClick={back} id='back' className='back'>
         Back
       </button>
     </article>

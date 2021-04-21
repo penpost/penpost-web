@@ -56,17 +56,6 @@ const UserLandingPage = ({ id }) => {
           </div>
           <div className="info-wrapper">
             <h2>Connection</h2>
-            {!queryData.user.activePal && (
-              <>
-                <h4>
-                  Looks like you arent connected with a pen pal, please click
-                  here to find one!
-                </h4>
-                <button>Click</button>
-              </>
-            )}
-            {queryData.user.activePal && (
-              <>
                 <h4 className="connection-name">
                   You are connected with {queryData.user.activePal.name} (
                   {queryData.user.activePal.country})
@@ -80,8 +69,6 @@ const UserLandingPage = ({ id }) => {
               </>
             )}
           </div>
-        </>
-      )}
       {updating && (
         <UpdateUserInfoForm
           userID={id}

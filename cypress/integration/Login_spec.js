@@ -10,20 +10,25 @@ describe('Login', () => {
     cy.get('.loginTitle').should('contain', 'Login');
   });
 
+  it('Should display an error if fields do no meet length requirements', () => {
+    cy.get('input[name=email]').type('mary')
+    cy.get('input[name=password]').type('pw')
+    cy.get('.loggedInButton').click()
+    cy.get('.invalidLoginText').should('be.visible')
+  });
+
   it('Should have be able to fill out the email address and password input', () => {
-    cy.get('input[name=email]').type('kelsie@yahoo.com').should('have.value', 'kelsie@yahoo.com')
+    cy.get('input[name=email]').type('mary@example.com').should('have.value', 'mary@example.com')
     cy.get('input[name=password]')
-      .type('kelsie123')
-      .should('have.value', 'kelsie123');
+      .type('pw1234')
+      .should('have.value', 'pw1234');
   });
 
   it('Should be able to click the login button after filling out the input fields', () => {
     cy.get('input[name=email]')
-      .type('kelsie@yahoo.com')
-      .should('have.value', 'kelsie@yahoo.com');
+      .type('mary@example.com')
     cy.get('input[name=password]')
-      .type('kelsie123')
-      .should('have.value', 'kelsie123');
+      .type('pw1234')
     cy.get('.loggedInButton').click();
   });
 })
