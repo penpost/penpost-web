@@ -76,7 +76,6 @@ const UserLandingPage = ({ id }) => {
                   <Link to="/create-postcard">
                     <button>Send Postcard</button>
                   </Link>
-                  <button>End Connection</button>
                 </div>
               </>
             )}
