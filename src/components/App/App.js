@@ -43,6 +43,7 @@ const App = () => {
         render={() =>
           <Login
             setIsLoggedIn={setIsLoggedIn}
+            setID={setID}
           />}
       />
       <Route
