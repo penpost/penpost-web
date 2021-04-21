@@ -66,9 +66,9 @@ const UserLandingPage = ({ id }) => {
                     <button>Send Postcard</button>
                   </Link>
                 </div>
-              </>
+              </div>
+            </>
             )}
-          </div>
       {updating && (
         <UpdateUserInfoForm
           userID={id}
