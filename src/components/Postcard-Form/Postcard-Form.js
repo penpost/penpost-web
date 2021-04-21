@@ -51,6 +51,7 @@ const PostcardForm = () => {
             type='text'
             value={image}
             id='image'
+            className='image'
             onChange={inputHandler}
             required
           />

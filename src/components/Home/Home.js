@@ -19,14 +19,6 @@ const Home = ({ isLoggedIn }) => {
                   Login
               </button>
               </Link>
-              <p className='homepageParagraph'>
-              If you need a login, sign up below
-              </p>
-              <Link to='/register' className='registerPage'>
-              <button className='registerButton button' aria-label='register'>
-                  Register
-              </button>
-              </Link>
           </div>
         }
       </section>
