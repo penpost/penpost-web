@@ -1,6 +1,6 @@
 # 🖋 PenPost 🖋
 
-__updated: 03/13/2020__
+__updated: 04/20/2021__
 
 ---
 #### Table of Contents
@@ -40,50 +40,30 @@ Please visit our website at:
 #### Home Page
 Upon navigating to our landing page, users see our tagline and sign in or up options.
 
-<details>
-  <summary>Example of Home Page</summary>
-  <br>
- <img width="283" alt="static home page interaction" src="">
-
- <img width="283" alt="home page gif" src="">
-</details>
+![homepage](https://i.imgur.com/VAYOq8i.png)
 
 #### Log In
 A user can log in to view their personal dashboard.
 
-<details>
-  <summary>Example of User flow</summary>
-  <br>
-  <img width="283" alt="logging in to an account" src="" />
-</details>
+![loginpage](https://i.imgur.com/yXHwyAq.png)
 
 #### Updating
 A user can update their personal information on their dashboard
 
-<details>
-  <summary>Example of Updating</summary>
-  <br>
-  <img width="283" alt="updating user information" src="" />
-</details>
+![userlandingpage](https://i.imgur.com/AqXK6M4.png)
 
+![updateinformation](https://i.imgur.com/T3EvPhc.png)
+![updateaboutinformation](https://i.imgur.com/jykyebc.png)
 
 #### Create Postcard
 A user can create their own postcard by add an image url and their personal message
 
-<details>
-  <summary>Example of User Flow</summary>
-  <br>
-  <img width="283" alt="creating a postcard" src="" />
-</details>
+![previewpostcard](https://i.imgur.com/hiNDAtA.png)
 
 #### Preview & Send
 A user can preview their created postcard & send it. Additionally, they can go back an edit anything without losing their work.
 
-<details>
-  <summary>Example of User Editing</summary>
-  <br>
-  <img width="283" alt="editing the postcard" src="" />
-</details>
+![preview-send](https://i.imgur.com/0yXGvi1.png)
 
 #### Cypress User Flow Testing
 Testing the UX & UI of our app.
