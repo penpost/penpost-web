@@ -1,4 +1,5 @@
 const baseURL = 'http://localhost:3000/';
+const liveURL = ''
 
 describe('Homepage', () => {
   beforeEach(() => {
