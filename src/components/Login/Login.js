@@ -67,6 +67,7 @@ const Login = ( { setIsLoggedIn, setID } ) => {
         </div>
         <Link to='/user-landing' className='landingPage'>
           <button
+            className='loggedInButton'
             type='submit'
             name='button'
             aria-label='login'

@@ -29,8 +29,8 @@ const UserLandingPage = ({ id }) => {
     <div className="landing-wrapper">
       {!updating && (
         <>
-          <h1>Welcome {queryData.user.name}</h1>
-          <div className="info-wrapper">
+          <h1 className='landing-title'>Welcome {queryData.user.name}</h1>
+          <div className='info-wrapper'>
             <h2>Profile Info</h2>
             <div className="address">
               <h4>{queryData.user.street} </h4>
@@ -56,17 +56,6 @@ const UserLandingPage = ({ id }) => {
           </div>
           <div className="info-wrapper">
             <h2>Connection</h2>
-            {!queryData.user.activePal && (
-              <>
-                <h4>
-                  Looks like you arent connected with a pen pal, please click
-                  here to find one!
-                </h4>
-                <button>Click</button>
-              </>
-            )}
-            {queryData.user.activePal && (
-              <>
                 <h4 className="connection-name">
                   You are connected with {queryData.user.activePal.name} (
                   {queryData.user.activePal.country})
@@ -76,13 +65,10 @@ const UserLandingPage = ({ id }) => {
                   <Link to="/create-postcard">
                     <button>Send Postcard</button>
                   </Link>
-                  <button>End Connection</button>
                 </div>
-              </>
+              </div>
+            </>
             )}
-          </div>
-        </>
-      )}
       {updating && (
         <UpdateUserInfoForm
           userID={id}
