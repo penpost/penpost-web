@@ -35,7 +35,9 @@ const App = () => {
       <Route
         exact
         path='/'
-        render={() => <Home />}
+        render={() => <Home
+            isLoggedIn={isLoggedIn}
+          />}
       />
       <Route
         exact
@@ -43,6 +45,7 @@ const App = () => {
         render={() =>
           <Login
             setIsLoggedIn={setIsLoggedIn}
+            setID={setID}
           />}
       />
       <Route
