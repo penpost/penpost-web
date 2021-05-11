@@ -1,9 +1,8 @@
 const baseURL = 'http://localhost:3000/';
-const liveURL = 'https://penpost-web.vercel.app'
 
 describe('Homepage', () => {
   beforeEach(() => {
-    cy.visit(baseURL || liveURL)
+    cy.visit(baseURL)
   })
 
   it('Should greet the user & describe app', () => {

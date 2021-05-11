@@ -1,9 +1,8 @@
 const baseURL = 'http://localhost:3000';
-const liveURL = 'https://penpost-web.vercel.app'
 
 describe('Login', () => {
   beforeEach(() => {
-    cy.visit(`${baseURL}/login` || `${liveURL}/login`)
+    cy.visit(`${baseURL}/login`)
     cy.get('input[name=email]')
       .type('mary@example.com')
     cy.get('input[name=password]')
