@@ -36,6 +36,6 @@ describe('Login', () => {
 
   it('Should be able to go to postcard creator', () => {
     cy.get('.info-wrapper button').should('contain', 'Send Postcard').click()
-    cy.url().should('eq', 'http://localhost:3000/create-postcard' || 'https://penpost-web.vercel.app/create-postcard')
+    cy.url().should('eq', 'http://localhost:3000/create-postcard')
   });
 })
