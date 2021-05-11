@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/penpost-web/static/css/main.fae55708.chunk.css",
-    "main.js": "/penpost-web/static/js/main.166f443d.chunk.js",
-    "main.js.map": "/penpost-web/static/js/main.166f443d.chunk.js.map",
+    "main.js": "/penpost-web/static/js/main.ae68f405.chunk.js",
+    "main.js.map": "/penpost-web/static/js/main.ae68f405.chunk.js.map",
     "runtime-main.js": "/penpost-web/static/js/runtime-main.347f03a5.js",
     "runtime-main.js.map": "/penpost-web/static/js/runtime-main.347f03a5.js.map",
-    "static/js/2.11ef2d69.chunk.js": "/penpost-web/static/js/2.11ef2d69.chunk.js",
-    "static/js/2.11ef2d69.chunk.js.map": "/penpost-web/static/js/2.11ef2d69.chunk.js.map",
+    "static/js/2.c54d1830.chunk.js": "/penpost-web/static/js/2.c54d1830.chunk.js",
+    "static/js/2.c54d1830.chunk.js.map": "/penpost-web/static/js/2.c54d1830.chunk.js.map",
     "index.html": "/penpost-web/index.html",
     "static/css/main.fae55708.chunk.css.map": "/penpost-web/static/css/main.fae55708.chunk.css.map",
-    "static/js/2.11ef2d69.chunk.js.LICENSE.txt": "/penpost-web/static/js/2.11ef2d69.chunk.js.LICENSE.txt",
+    "static/js/2.c54d1830.chunk.js.LICENSE.txt": "/penpost-web/static/js/2.c54d1830.chunk.js.LICENSE.txt",
     "static/media/postage-stamp.7d006688.png": "/penpost-web/static/media/postage-stamp.7d006688.png",
     "static/media/index.scss": "/penpost-web/static/media/postcard-images.442e8962.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.347f03a5.js",
-    "static/js/2.11ef2d69.chunk.js",
+    "static/js/2.c54d1830.chunk.js",
     "static/css/main.fae55708.chunk.css",
-    "static/js/main.166f443d.chunk.js"
+    "static/js/main.ae68f405.chunk.js"
   ]
 }
