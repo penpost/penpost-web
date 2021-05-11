@@ -1,8 +1,8 @@
-const baseURL = 'http://localhost:3000';
+const baseURL = 'http://localhost:3000/penpost-web/';
 
 describe('Login', () => {
   beforeEach(() => {
-    cy.visit(`${baseURL}/login`);
+    cy.visit(`${baseURL}login`);
   });
 
   it('Should display a login message', () => {
