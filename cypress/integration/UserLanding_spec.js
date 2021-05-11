@@ -1,9 +1,8 @@
-const baseURL = 'http://localhost:3000';
-const liveURL = 'https://penpost-web.vercel.app'
+const baseURL = "http://localhost:3000/#/";
 
 describe('Login', () => {
   beforeEach(() => {
-    cy.visit(`${baseURL}/login` || `${liveURL}/login`)
+    cy.visit(`${baseURL}login`)
     cy.get('input[name=email]')
       .type('mary@example.com')
     cy.get('input[name=password]')
@@ -37,6 +36,6 @@ describe('Login', () => {
 
   it('Should be able to go to postcard creator', () => {
     cy.get('.info-wrapper button').should('contain', 'Send Postcard').click()
-    cy.url().should('eq', 'http://localhost:3000/create-postcard' || 'https://penpost-web.vercel.app/create-postcard')
+    cy.url().should('eq', 'http://localhost:3000/create-postcard')
   });
 })

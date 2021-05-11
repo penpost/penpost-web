@@ -1,8 +1,9 @@
 # 🖋 PenPost 🖋
 
-__updated: 04/20/2021__
+__updated: 05/10/2021__
 
 ---
+
 #### Table of Contents
 - [Introduction](#Introduction)
 - [Features](#Features)
@@ -10,6 +11,7 @@ __updated: 04/20/2021__
 - [Artist Credits](#Artist-Credits)
 - [Contributions](#Contributions)
 - [Authors](#Authors)
+
 ---
 ## Introduction
 
@@ -22,7 +24,11 @@ Originally, this project was built as a capstone project through Turing School o
 ## Features
 
 Please visit our website at:
-[https://penpost-web.vercel.app/](https://penpost-web.vercel.app/)
+[https://penpost.github.io/penpost-web/#/](https://penpost.github.io/penpost-web/#/)
+
+Use the following log-in credentials to try it out yourself!
+username: `chuck@example.com`
+password: `pw1234`
 
 > Please note: this project is actively in development and changes can and may occur daily.
 
@@ -36,8 +42,6 @@ Please visit our website at:
 - [Creating a Postcard](#Create-Postcard)
 
 - [Previewing & Sending a Postcard](#Preview-&-Send)
-
-- [Cypress User Flow Testing](#Cypress-User-Flow-Testing)
 
 #### Home Page
 Upon navigating to our landing page, users see our tagline and sign in or up options.
@@ -66,15 +70,6 @@ A user can create their own postcard by add an image url and their personal mess
 A user can preview their created postcard & send it. Additionally, they can go back an edit anything without losing their work.
 
 ![preview-send](https://i.imgur.com/0yXGvi1.png)
-
-#### Cypress User Flow Testing
-Testing the UX & UI of our app.
-
-<details>
-  <summary>Example of Cypress Experience</summary>
-  <br>
-  <img width="600" alt="testing user flow in cypress" src="">
-</details>
 
 ## Technologies
 - React

@@ -1,9 +1,8 @@
-const baseURL = 'http://localhost:3000';
-const liveURL = 'https://penpost-web.vercel.app'
+const baseURL = "http://localhost:3000/#/";
 
 describe('Login', () => {
   beforeEach(() => {
-    cy.visit(`${baseURL}/login` || `${liveURL}/login`);
+    cy.visit(`${baseURL}login`);
   });
 
   it('Should display a login message', () => {

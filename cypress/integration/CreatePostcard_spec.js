@@ -1,15 +1,14 @@
-const baseURL = 'http://localhost:3000';
-const liveURL = 'https://penpost-web.vercel.app'
+const baseURL = 'http://localhost:3000/#/';
 
 describe('Login', () => {
   beforeEach(() => {
-    cy.visit(`${baseURL}/login` || `${liveURL}/login`)
+    cy.visit(`${baseURL}login`)
     cy.get('input[name=email]')
       .type('mary@example.com')
     cy.get('input[name=password]')
       .type('pw1234')
     cy.get('.loggedInButton').click();
-    cy.visit(`${baseURL}/create-postcard`)
+    cy.visit(`${baseURL}create-postcard`)
   });
 
   it('Should be able to enter in an image', () => {
