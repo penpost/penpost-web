@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/penpost-web/';
+const baseURL = 'http://localhost:3000/#/';
 
 describe('Login', () => {
   beforeEach(() => {
@@ -8,7 +8,7 @@ describe('Login', () => {
     cy.get('input[name=password]')
       .type('pw1234')
     cy.get('.loggedInButton').click();
-    cy.visit(`${baseURL}/create-postcard`)
+    cy.visit(`${baseURL}create-postcard`)
   });
 
   it('Should be able to enter in an image', () => {
