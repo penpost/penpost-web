@@ -14,7 +14,7 @@ describe('Login', () => {
 
   it('Should be able to enter in an image', () => {
     cy.get('.image').type('https://www.allaboutbirds.org/guide/assets/photo/297684081-1280px.jpg')
-    cy.get('.image-thumbnail image').should('have.attr', 'src', 'https://www.allaboutbirds.org/guide/assets/photo/297684081-1280px.jpg')
+    cy.get('.image-thumbnail img').should('have.attr', 'src', 'https://www.allaboutbirds.org/guide/assets/photo/297684081-1280px.jpg')
   });
 
   it('Should be able to enter in a message', () => {
