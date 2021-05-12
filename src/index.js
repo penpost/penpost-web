@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Error from './components/Error/Error'
 import App from './components/App/App'
 import './index.scss'
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -35,9 +35,9 @@ export const client = new ApolloClient({
 })
 
 const router = (
-  <HashRouter>
+  <BrowserRouter>
     <App />
-  </HashRouter>
+  </BrowserRouter>
 );
 
 ReactDOM.render(
